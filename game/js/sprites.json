@@ -1,0 +1,60 @@
+{
+    "meta": {
+        "image": "tank.png",
+        "size": {
+            "w": 640,
+            "h": 190
+        },
+        "scale": "1"
+    },
+    "frames": {
+        "green": {
+            "frame": {
+                "x": 20,
+                "y": 35,
+                "w": 165,
+                "h": 115
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 165,
+                "h": 115
+            },
+            "sourceSize": {
+                "w": 165,
+                "h": 115
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "gray": {
+            "frame": {
+                "x": 305,
+                "y": 30,
+                "w": 185,
+                "h": 125
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 185,
+                "h": 125
+            },
+            "sourceSize": {
+                "w": 185,
+                "h": 125
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    }
+}

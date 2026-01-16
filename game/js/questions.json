@@ -1,0 +1,556 @@
+{
+  "title": "Câu hỏi về Đại hội Đảng IX và X",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Chủ đề của Đại hội X là gì?",
+      "options": [
+        "A. Đẩy mạnh công nghiệp hóa đất nước",
+        "B. Phát huy dân chủ xã hội chủ nghĩa",
+        "C. Nâng cao năng lực lãnh đạo và sức chiến đấu của Đảng",
+        "D. Xây dựng Nhà nước pháp quyền xã hội chủ nghĩa"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 2,
+      "question": "Một trong những nhiệm vụ quan trọng của Đại hội X là gì?",
+      "options": [
+        "A. Ban hành Hiến pháp mới",
+        "B. Sửa đổi, bổ sung Điều lệ Đảng",
+        "C. Thành lập Chính phủ mới",
+        "D. Bầu Chủ tịch nước"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 3,
+      "question": "So với Cương lĩnh năm 1991, Đại hội X đã bổ sung đặc trưng nào của chủ nghĩa xã hội?",
+      "options": [
+        "A. Kinh tế thị trường",
+        "B. Nhà nước pháp quyền xã hội chủ nghĩa",
+        "C. Hội nhập quốc tế",
+        "D. Công nghiệp hóa"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 4,
+      "question": "Ai là Tổng Bí thư được bầu tại Đại hội đại biểu toàn quốc lần thứ X (năm 2006)?",
+      "options": [
+        "A. Đồng chí Nông Đức Mạnh",
+        "B. Đồng chí Lê Khả Phiêu",
+        "C. Đồng chí Nguyễn Phú Trọng",
+        "D. Đồng chí Đỗ Mười"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 5,
+      "question": "Nhiệm vụ chính của Đại hội Đảng lần thứ X là gì?",
+      "options": [
+        "A. Xây dựng và bảo vệ Tổ quốc trong thời kỳ mới trên các lĩnh vực kinh tế, văn hóa – xã hội, quốc phòng – an ninh, đối ngoại và xây dựng hệ thống chính trị",
+        "B. Xây dựng, chỉnh đốn Đảng",
+        "C. Làm sáng tỏ bản chất của Đảng và đưa ra cách diễn đạt mới về Đảng",
+        "D. A và B đều đúng"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 6,
+      "question": "Chủ đề Đại hội 10 gồm mấy thành tố?",
+      "options": [
+        "A. 1 thành tố",
+        "B. 4 thành tố",
+        "C. 2 thành tố",
+        "D. 3 thành tố"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 7,
+      "question": "Theo tinh thần Đại hội X, để phát huy sức mạnh toàn dân tộc, vấn đề cơ bản Đảng cần giải quyết là gì?",
+      "options": [
+        "A. Tập trung phát triển kinh tế thị trường, mở rộng đối ngoại",
+        "B. Giữ vững độc lập dân tộc, thống nhất Tổ quốc",
+        "C. Hài hòa các loại lợi ích",
+        "D. Đổi mới phương thức lãnh đạo và nâng cao năng lực quản lý nhà nước"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 8,
+      "question": "Nội dung đẩy mạnh toàn diện công cuộc đổi mới ở ĐH10 gồm mấy vấn đề?",
+      "options": [
+        "A. 2 vấn đề",
+        "B. 3 vấn đề",
+        "C. 4 vấn đề",
+        "D. 5 vấn đề"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 9,
+      "question": "Đại hội X diễn ra trong bối cảnh thế giới như thế nào?",
+      "options": [
+        "A. Ổn định, ít biến động",
+        "B. Có nhiều diễn biến nhanh chóng, phức tạp, khó lường",
+        "C. Kinh tế toàn cầu suy thoái nghiêm trọng",
+        "D. Chiến tranh thế giới bùng nổ"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 10,
+      "question": "Đại hội Đảng đầu tiên trong thế kỉ XXI là đại hội lần thứ mấy?",
+      "options": [
+        "A. Đại hội VII",
+        "B. Đại hội VIII",
+        "C. Đại hội IX",
+        "D. Đại hội X"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 11,
+      "question": "Đại hội Đảng lần thứ IX diễn ra trong bối cảnh thế giới như thế nào?",
+      "options": [
+        "A. Cách mạng khoa học công nghệ, kinh tế thị trường và toàn cầu hóa diễn ra mạnh mẽ",
+        "B. Cách mạng khoa học công nghệ, kinh tế tri thức và toàn cầu hóa diễn ra mạnh mẽ",
+        "C. Cách mạng khoa học kỹ thuật, kinh tế tri thức và toàn cầu hóa diễn ra mạnh mẽ",
+        "D. Không đáp án nào đúng"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 12,
+      "question": "Biểu hiện cơ bản của tình hình tư tưởng trong Đảng và trong nhân dân sau 15 năm đổi mới là gì?",
+      "options": [
+        "A. Chủ yếu là mặt tiêu cực",
+        "B. Mặt tích cực và tiêu cực ngang nhau",
+        "C. Mặt tích cực là cơ bản",
+        "D. Chủ yếu là khủng hoảng tư tưởng"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 13,
+      "question": "Đại hội IX khẳng định: Đảng và nhân dân ta quyết tâm xây dựng đất nước Việt Nam theo con đường XHCN trên nền tảng nào?",
+      "options": [
+        "A. Chủ nghĩa Mác – Lênin",
+        "B. Tư tưởng Hồ Chí Minh",
+        "C. Chủ nghĩa Mác – Lênin và tư tưởng Hồ Chí Minh",
+        "D. Chủ nghĩa xã hội khoa học"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 14,
+      "question": "Động lực chủ yếu để phát triển đất nước được nêu ra trong Đại hội Đảng lần thứ IX là?",
+      "options": [
+        "A. Khoa học – công nghệ",
+        "B. Công nghiệp hóa, hiện đại hóa",
+        "C. Đại đoàn kết toàn dân",
+        "D. Hội nhập kinh tế quốc tế"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 15,
+      "question": "Mô hình kinh tế tổng quát của nước ta trong thời kỳ quá độ lên CNXH là gì?",
+      "options": [
+        "A. Mô hình kinh tế kế hoạch hóa tập trung",
+        "B. Mô hình kinh tế thị trường tự do",
+        "C. Mô hình kinh tế thị trường định hướng xã hội chủ nghĩa",
+        "D. Mô hình kinh tế hỗn hợp"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 16,
+      "question": "Tìm thông tin sai trong nội dung sau: Mục tiêu tổng quát của chiến lược phát triển kinh tế - xã hội 10 năm 2001-2010 là: đưa nước ta ra khỏi tình trạng kém phát triển, tạo nền tảng để đến năm 2020, nước ta cơ bản trở thành một nước công nghiệp theo hướng hiện đại, tiếp tục đưa GDP năm 2010 lên gấp đôi so với năm 2000.",
+      "options": [
+        "A. Chiến lược phát triển kinh tế - xã hội 10 năm 2001-2010",
+        "B. Năm 2020",
+        "C. Gấp đôi",
+        "D. Không có thông tin nào sai"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": 17,
+      "question": "So với Cương lĩnh năm 1991, Đại hội X đã bổ sung cụm từ nào trong đặc trưng: 'Các dân tộc trong cộng đồng Việt Nam bình đẳng, đoàn kết, tương trợ và giúp đỡ lẫn nhau cùng tiến bộ'?",
+      "options": [
+        "A. Bình đẳng",
+        "B. Tương trợ",
+        "C. Giúp đỡ",
+        "D. Đoàn kết"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 18,
+      "question": "Đâu là bước đột phá trong thay đổi tư duy được Đại hội Đảng lần thứ X đề ra?",
+      "options": [
+        "A. Đảng viên được làm kinh tế tư nhân, kể cả kinh tế tư bản tư nhân",
+        "B. Toàn dân được làm kinh tế tư nhân, kể cả kinh tế tư bản tư nhân",
+        "C. Hạn chế làm kinh tế tư nhân",
+        "D. A, B, C đều sai"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 19,
+      "question": "Đâu là đặc trưng mới được đề cập tại Đại hội X mà Cương lĩnh năm 1991 chưa nêu?",
+      "options": [
+        "A. Dân giàu, nước mạnh, công bằng, dân chủ, văn minh",
+        "B. Có nền văn hóa tiên tiến, đậm đà bản sắc dân tộc",
+        "C. Có quan hệ hữu nghị và hợp tác với nhân dân tất cả các nước trên thế giới",
+        "D. Có nền kinh tế phát triển cao dựa trên lực lượng sản xuất hiện đại và chế độ công hữu về các tư liệu sản xuất chủ yếu"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 20,
+      "question": "So với Cương lĩnh năm 1991, Đại hội X đã bổ sung và phát triển cụm từ nào sau đây: 'Các dân tộc trong nước phải …'?",
+      "options": [
+        "A. Tôn trọng, bình đẳng, tương trợ, đoàn kết và giúp đỡ lẫn nhau cùng phát triển",
+        "B. Tôn trọng, đoàn kết, tương trợ và giúp đỡ lẫn nhau cùng tiến bộ",
+        "C. Bình đẳng, đoàn kết, tương trợ và giúp đỡ lẫn nhau cùng phát triển",
+        "D. Bình đẳng, đoàn kết, tương trợ và giúp đỡ lẫn nhau cùng tiến bộ"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": 21,
+      "question": "Bộ Chính trị khóa X có bao nhiêu ủy viên?",
+      "options": [
+        "A. 15 ủy viên",
+        "B. 14 ủy viên",
+        "C. 17 ủy viên",
+        "D. 16 ủy viên"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 22,
+      "question": "Đại hội X không mời khách quốc tế tham dự nhằm mục đích gì?",
+      "options": [
+        "A. Tiết kiệm kinh phí tổ chức",
+        "B. Tập trung cao vào các vấn đề nội bộ của đất nước và Đảng",
+        "C. Thực hiện chủ trương đối ngoại mới",
+        "D. Do tình hình an ninh phức tạp"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 23,
+      "question": "Văn kiện nào sau đây KHÔNG được Đại hội X thông qua?",
+      "options": [
+        "A. Báo cáo chính trị",
+        "B. Báo cáo phát triển kinh tế – xã hội 2006–2010",
+        "C. Báo cáo công tác xây dựng Đảng",
+        "D. Hiến pháp nước CHXHCN Việt Nam"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": 24,
+      "question": "Một trong các phương hướng lớn giai đoạn 2006–2010 được Đại hội X xác định là:",
+      "options": [
+        "A. Phát triển kinh tế kế hoạch hóa tập trung",
+        "B. Đẩy nhanh công nghiệp hóa, hiện đại hóa đất nước",
+        "C. Ưu tiên phát triển công nghiệp nặng",
+        "D. Hạn chế hội nhập quốc tế"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 25,
+      "question": "Mô hình Nhà nước mà Đảng và nhân dân ta xây dựng trong thời kỳ quá độ lên CNXH là:",
+      "options": [
+        "A. Nhà nước dân chủ nhân dân",
+        "B. Nhà nước pháp quyền xã hội chủ nghĩa",
+        "C. Nhà nước phúc lợi",
+        "D. Nhà nước liên bang"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 26,
+      "question": "Mô hình văn hóa của Việt Nam được xác định trong Đại hội IX là:",
+      "options": [
+        "A. Văn hóa hiện đại, hội nhập quốc tế",
+        "B. Văn hóa dân tộc truyền thống",
+        "C. Văn hóa tiên tiến, đậm đà bản sắc dân tộc",
+        "D. Văn hóa xã hội chủ nghĩa"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 27,
+      "question": "Điền vào chỗ trống: Về phát triển con người, đại hội IX xác định: Xây dựng con người Việt Nam phát triển toàn diện về chính trị,........, trí tuệ, đạo đức,......, năng lực sáng tạo, có ý thức cộng đồng, lòng nhân ái, khoan dung, tôn trọng nghĩa tình, lối sống có văn hóa, ……. trong gia đình, cộng đồng và xã hội.",
+      "options": [
+        "A. tư tưởng – thể chất – quan hệ hài hòa",
+        "B. kinh tế – thể lực – kỹ năng",
+        "C. tinh thần – sức khỏe – đạo đức",
+        "D. tư tưởng – sức khỏe – xã hội"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 28,
+      "question": "Thế kỷ XX ghi đậm trong lịch sử loài người những dấu ấn nào sau đây?",
+      "options": [
+        "A. Hai cuộc chiến tranh thế giới, cách mạng khoa học – công nghệ, phong trào cách mạng phát triển trên toàn thế giới",
+        "B. Hai cuộc chiến tranh thế giới, cách mạng khoa học – kỹ thuật, phong trào cách mạng phát triển tại các quốc gia Châu Á",
+        "C. Hai cuộc chiến tranh thế giới, cách mạng khoa học – công nghệ, phong trào cách mạng phát triển tại các quốc gia Châu Á",
+        "D. Hai cuộc chiến tranh thế giới, cách mạng khoa học – kỹ thuật, phong trào cách mạng phát triển trên toàn thế giới"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 29,
+      "question": "Qua 10 năm (1991–2001), nền kinh tế nào phát triển rộng khắp cả nước?",
+      "options": [
+        "A. Kinh tế nhà nước",
+        "B. Kinh tế tập thể",
+        "C. Kinh tế tư nhân",
+        "D. Kinh tế có vốn đầu tư nước ngoài"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 30,
+      "question": "Hội nghị trung ương 7 khóa IX (3/2003) đã thống nhất coi cái gì là tài nguyên quốc gia vô cùng quý giá, là tư liệu sản xuất đặc biệt, là nguồn nội lực và nguồn vốn to lớn của đất nước?",
+      "options": [
+        "A. Rừng",
+        "B. Khoáng sản",
+        "C. Đất đai",
+        "D. Biển"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 31,
+      "question": "Những vấn đề cấp thiết đặt ra cho nước ta sau Đại hội IX là:",
+      "options": [
+        "A. Đẩy mạnh CNH-HĐH, phát triển giáo dục và bảo vệ Tổ quốc",
+        "B. Đẩy mạnh CNH-HĐH, hội nhập quốc tế và bảo vệ Tổ quốc",
+        "C. Phát triển kinh tế tư nhân, hội nhập quốc tế và bảo vệ Tổ quốc",
+        "D. Phát triển kinh tế tư nhân, phát triển giáo dục và đẩy mạnh CNH-HĐH"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 32,
+      "question": "Mục tiêu tổng quát chiến lược phát triển kinh tế – xã hội 2001–2010 gồm mấy nội dung chính?",
+      "options": [
+        "A. 2",
+        "B. 3",
+        "C. 4",
+        "D. 5"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 33,
+      "question": "Hội Nghị Trung ương 5 (3/2002) đã thống nhất nhận thức coi vai trò của kinh tế tư nhân là gì đối với nền kinh tế quốc dân?",
+      "options": [
+        "A. Bộ phận phụ trợ của nền kinh tế quốc dân",
+        "B. Bộ phận cần phát triển của nền kinh tế quốc dân",
+        "C. Bộ phận cấu thành quan trọng của nền kinh tế quốc dân",
+        "D. Bộ phận kinh tế tạm thời của nền kinh tế quốc dân"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 34,
+      "question": "Trong Đại Hội IX, nghị quyết nào được ban hành về công tác đối với người Việt Nam tại nước ngoài?",
+      "options": [
+        "A. Nghị quyết 23 NQ/TW",
+        "B. Nghị quyết 24 NQ/TW",
+        "C. Nghị quyết 36 NQ/TW",
+        "D. Nghị quyết 37 NQ/TW"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 35,
+      "question": "Nhiệm vụ then chốt theo quan điểm của Đại hội IX là:",
+      "options": [
+        "A. Phát triển kinh tế",
+        "B. Hội nhập quốc tế",
+        "C. Xây dựng Đảng",
+        "D. Phát triển văn hóa"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 36,
+      "question": "Điền vào chỗ trống cụm từ còn thiếu trong đoạn sau: 'Mỗi cán bộ, đảng viên, công chức, viên chức, đoàn viên, hội viên … tư tưởng, đạo đức, phong cách Hồ Chí Minh, báo cáo kết quả với cấp ủy hoặc chi bộ, cơ quan, đơn vị nơi công tác.'",
+      "options": [
+        "A. học tập và làm theo",
+        "B. xây dựng kế hoạch và tự giác làm theo",
+        "C. xây dựng kế hoạch và làm theo",
+        "D. làm theo"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 37,
+      "question": "Đâu không phải là một trong những định hướng chủ yếu thực hiện công nghiệp hóa, hiện đại hóa gắn với phát triển kinh tế tri thức?",
+      "options": [
+        "A. Đẩy mạnh CNH, HĐH nông nghiệp và nông thôn",
+        "B. Phát triển kinh tế vùng",
+        "C. Phát triển lực lượng lao động",
+        "D. A và C"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 38,
+      "question": "Đồng chí Phó Chủ nhiệm Ủy ban Kiểm tra cấp ủy cùng cấp do cơ quan nào bầu cử?",
+      "options": [
+        "A. Cấp ủy cùng cấp",
+        "B. Ủy ban Kiểm tra cấp dưới",
+        "C. Ủy ban Kiểm tra cùng cấp",
+        "D. Ủy ban Kiểm tra cấp trên trực tiếp"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 39,
+      "question": "Điều lệ Đảng hiện hành quy định nguyên tắc tổ chức cơ bản của Đảng Cộng sản Việt Nam là nguyên tắc nào?",
+      "options": [
+        "A. Tự phê bình và phê bình",
+        "B. Tập trung dân chủ",
+        "C. Đảng hoạt động trong khuôn khổ Hiến pháp và pháp luật",
+        "D. Cả 3 phương án trên"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": 40,
+      "question": "Điều lệ Đảng hiện hành quy định hình thức kỷ luật đối với đảng viên chính thức gồm những hình thức nào?",
+      "options": [
+        "A. Khiển trách, cảnh cáo, xóa tên, khai trừ",
+        "B. Khiển trách, cảnh cáo, xóa tên, cách chức",
+        "C. Khiển trách, cảnh cáo, cách chức, khai trừ",
+        "D. Khiển trách, cảnh cáo, khai trừ, hạ bậc lương"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 41,
+      "question": "Đại hội X nhấn mạnh việc thực hiện nghiêm nguyên tắc nào trong xây dựng Đảng?",
+      "options": [
+        "A. Tự phê bình và phê bình",
+        "B. Tập trung dân chủ",
+        "C. Đoàn kết thống nhất",
+        "D. Bình đẳng trong Đảng"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 42,
+      "question": "Đại hội X xác định phát triển công nghiệp hóa – hiện đại hóa gắn với yếu tố nào?",
+      "options": [
+        "A. Kinh tế hộ gia đình",
+        "B. Kinh tế tập thể",
+        "C. Kinh tế tri thức",
+        "D. Kinh tế nhà nước"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 43,
+      "question": "Một kết quả nổi bật sau Đại hội X là Việt Nam:",
+      "options": [
+        "A. Gia nhập WTO",
+        "B. Trở thành nước phát triển",
+        "C. Thoát khỏi nhóm nước nghèo, trở thành nước thu nhập trung bình",
+        "D. Trở thành trung tâm tài chính khu vực"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 44,
+      "question": "Điền vào chỗ trống: Nghị quyết số 23-NQ/TW ngày 12 tháng 03 năm 2003 đã khẳng định: Đại đoàn kết dân tộc là đường lối chiến lược của Cách mạng Việt Nam; là nguồn sức mạnh, động lực chủ yếu và là nhân tố có ý nghĩa quyết định bảo đảm ….. của sự nghiệp xây dựng và bảo vệ tổ quốc",
+      "options": [
+        "A. thành công bền vững",
+        "B. sự ổn định",
+        "C. thắng lợi bền vững",
+        "D. sự phát triển lâu dài"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 45,
+      "question": "Điền vào chỗ trống: Nhiệm vụ cơ bản về bảo vệ Tổ quốc là: giữ vững hòa bình, ổn định để thực hiện ….. sự nghiệp công nghiệp hóa, hiện đại hóa đất nước theo….. xã hội chủ nghĩa.",
+      "options": [
+        "A. thắng lợi – định hướng",
+        "B. thành công – con đường",
+        "C. hiệu quả – mô hình",
+        "D. toàn diện – tư tưởng"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 46,
+      "question": "Điền vào chỗ trống: Hội nghị Trung ương 8 khóa IX (7/2003) xác định chiến lược: Mục tiêu bảo vệ tổ quốc xã hội chủ nghĩa là bảo vệ vững chắc độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ, bảo vệ Đảng, Nhà nước, nhân dân và chế độ xã hội chủ nghĩa; bảo vệ sự nghiệp đổi mới công nghiệp hóa, hiện đại hóa đất nước;...........; bảo vệ an ninh chính trị quốc gia, trật tự an toàn xã hội và nền văn hóa; giữa vững an ninh chính trị và môi trường hòa bình phát triển đất nước theo định hướng xã hội chủ nghĩa.",
+      "options": [
+        "A. bảo vệ lợi ích quốc gia",
+        "B. bảo vệ lợi ích quốc gia, dân tộc",
+        "C. bảo vệ lợi ích giai cấp",
+        "D. bảo vệ lợi ích quốc gia, giai cấp"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 47,
+      "question": "Điền vào chỗ trống: 'Đại đoàn kết toàn dân tộc lấy mục tiêu giữ vững độc lập, thống nhất tổ quốc, vì dân giàu nước mạnh, xã hội công bằng dân chủ, văn minh làm ……. , xóa bỏ mặc cảm, định kiến, phân biệt đối xử về quá khứ, thành phần, giai cấp, xây dựng tinh thần cởi mở, tin cậy lẫn nhau, cùng hướng tới tương lai.'",
+      "options": [
+        "A. điểm chung",
+        "B. điểm tương đồng",
+        "C. điểm giống nhau",
+        "D. điểm tựa"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 48,
+      "question": "Nghị quyết số 24-NQ/TW ngày 12/3/2003 về công tác dân tộc đã chỉ ra đâu là vấn đề chiến lược cơ bản, lâu dài đồng thời là các vấn đề cấp bách của cách mạng Việt Nam?",
+      "options": [
+        "A. Vấn đề giai cấp",
+        "B. Vấn đề tôn giáo",
+        "C. Vấn đề dân tộc và đoàn kết dân tộc",
+        "D. Vấn đề kinh tế"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 49,
+      "question": "Điền vào chỗ trống: 'Qua 5 năm 1996-2001, kinh tế tập thể mà nòng cốt là ……. dưới hình dưới nhiều hình thức, trình độ khác nhau trong các ngành, lĩnh vực, nhất là trong nông nghiệp phải nông thôn đã có đổi mới, đóng góp quan trọng và phát triển kinh tế - xã hội của đất nước.'",
+      "options": [
+        "A. hợp tác xã",
+        "B. doanh nghiệp nhà nước",
+        "C. hợp tác xã kiểu mới",
+        "D. hộ gia đình"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 50,
+      "question": "Tìm thông tin sai trong nội dung sau: 'Con đường phát triển quá độ lên chủ nghĩa xã hội của nước ta là bỏ qua chế độ tư bản chủ nghĩa, tức là bỏ qua việc xác lập vị trí thống trị của cơ sở hạ tầng và kiến trúc thượng tầng tư bản chủ nghĩa, nhưng tiếp thu, kế thừa những thành tựu mà nhân loại đã đạt được dưới chế độ tư bản chủ nghĩa, đặc biệt về khoa học và công nghệ, để phát triển nhanh lực lượng sản xuất, xây dựng nền kinh tế hiện đại.'",
+      "options": [
+        "A. cơ sở hạ tầng",
+        "B. kiến trúc thượng tầng",
+        "C. chế độ tư bản chủ nghĩa",
+        "D. lực lượng sản xuất"
+      ],
+      "answer": "A"
+    }
+  ]
+}

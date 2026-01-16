@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎖️ Trẻ Giải Phóng</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- PERMANENT PARTS STATUS BAR -->
+    <div id="permanent-parts-bar" class="permanent-parts-bar">
+        <div class="parts-bar-header">
+            <span class="parts-bar-icon">🔧</span>
+            <span class="parts-bar-title">PHỤ TÙNG ĐỘI</span>
+
+            <!-- Resize controls only -->
+            <div class="parts-bar-controls">
+                <button class="parts-btn-resize" data-action="shrink" title="Thu nhỏ">−</button>
+                <button class="parts-btn-resize" data-action="grow" title="Phóng to">+</button>
+            </div>
+        </div>
+        <div id="parts-bar-teams" class="parts-bar-teams">
+            <!-- Teams will be rendered here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- CONFETTI CONTAINER -->
+    <div id="confetti-container"></div>
+
+    <!-- FULLSCREEN MAP -->
+    <div id="game-container">
+
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- 3D DICE - Bố cục chấm chính xác -->
+        <div id="dice-3d-container" class="dice-3d-container hidden">
+            <div class="dice-3d" id="dice-3d">
+                <!-- Mặt 1 - Giữa -->
+                <div class="dice-face front" data-value="1">
+                    <span class="dot center"></span>
+                </div>
+                <!-- Mặt 6 - 2 cột x 3 hàng -->
+                <div class="dice-face back" data-value="6">
+                    <span class="dot top-left"></span>
+                    <span class="dot top-right"></span>
+                    <span class="dot mid-left"></span>
+                    <span class="dot mid-right"></span>
+                    <span class="dot bot-left"></span>
+                    <span class="dot bot-right"></span>
+                </div>
+                <!-- Mặt 3 - Đường chéo -->
+                <div class="dice-face right" data-value="3">
+                    <span class="dot top-right"></span>
+                    <span class="dot center"></span>
+                    <span class="dot bot-left"></span>
+                </div>
+                <!-- Mặt 4 - 4 góc -->
+                <div class="dice-face left" data-value="4">
+                    <span class="dot top-left"></span>
+                    <span class="dot top-right"></span>
+                    <span class="dot bot-left"></span>
+                    <span class="dot bot-right"></span>
+                </div>
+                <!-- Mặt 5 - 4 góc + giữa -->
+                <div class="dice-face top" data-value="5">
+                    <span class="dot top-left"></span>
+                    <span class="dot top-right"></span>
+                    <span class="dot center"></span>
+                    <span class="dot bot-left"></span>
+                    <span class="dot bot-right"></span>
+                </div>
+                <!-- Mặt 2 - Đường chéo -->
+                <div class="dice-face bottom" data-value="2">
+                    <span class="dot top-right"></span>
+                    <span class="dot bot-left"></span>
+                </div>
+            </div>
+            <div class="dice-result" id="dice-result"></div>
+        </div>
+    </div>
+
+    <!-- FLOATING ACTION BUTTONS - VINTAGE MILITARY STYLE -->
+    <div id="fab-container" class="fab-container">
+
+        <button id="fab-question" class="fab-button fab-military fab-book" title="Trả lời câu hỏi">
+            <img src="assets/icon_scroll_premium.png" alt="Lệnh" class="fab-icon-img" />
+            <span class="fab-label">LỆNH</span>
+        </button>
+
+        <!-- Dice Button - Premium Red Dice Image -->
+        <button id="fab-dice" class="fab-button fab-military fab-dice-btn" disabled title="Gieo xúc xắc">
+            <img src="assets/icon_dice_premium.png" alt="Xúc xắc" class="fab-icon-img dice-icon" />
+            <span class="fab-label">GIEO</span>
+        </button>
+
+        <!-- Current Turn Indicator -->
+        <div id="current-turn-badge" class="current-turn-badge">
+            <span id="turn-team-name">Đội Đỏ</span>
+        </div>
+    </div>
+
+
+    <!-- Map Editor removed - coordinates are loaded from map_path.json -->
+
+    <!-- GAME LOG (Floating) -->
+    <div id="game-log-container" class="game-log-floating hidden">
+        <div class="log-header">
+            <span>📜 NHẬT KÝ</span>
+            <button id="toggle-log" class="log-toggle">−</button>
+        </div>
+        <ul id="game-log" class="game-log-list"></ul>
+    </div>
+
+    <!-- QUESTION MODAL - AI LA TRIEU PHU STYLE -->
+    <div id="question-modal" class="modal hidden">
+        <div class="modal-backdrop altp-backdrop"></div>
+        <div class="altp-container">
+            <!-- Timer Display -->
+            <div class="altp-timer-container">
+                <div class="altp-timer" id="circular-timer">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="timer-progress" cx="50" cy="50" r="45" id="timer-circle"></circle>
+                    </svg>
+                    <span class="altp-timer-text" id="timer-text">30</span>
+                </div>
+            </div>
+
+            <!-- Difficulty Badge -->
+            <div class="altp-difficulty">
+                <span id="question-difficulty" class="difficulty-badge">CHẶNG 1</span>
+            </div>
+
+            <!-- Question Box - Hexagonal Style -->
+            <div class="altp-question-box">
+                <div class="altp-question-inner">
+                    <p id="question-text" class="altp-question-text">Đang tải câu hỏi...</p>
+                </div>
+            </div>
+
+            <!-- Answers Grid - 2x2 Hexagonal -->
+            <div id="answers-container" class="altp-answers">
+                <!-- Answer A -->
+                <button class="answer-btn altp-answer" data-index="0">
+                    <div class="altp-answer-shape">
+                        <span class="altp-answer-letter">A</span>
+                        <span class="answer-text altp-answer-text"></span>
+                    </div>
+                </button>
+                <!-- Answer B -->
+                <button class="answer-btn altp-answer" data-index="1">
+                    <div class="altp-answer-shape">
+                        <span class="altp-answer-letter">B</span>
+                        <span class="answer-text altp-answer-text"></span>
+                    </div>
+                </button>
+                <!-- Answer C -->
+                <button class="answer-btn altp-answer" data-index="2">
+                    <div class="altp-answer-shape">
+                        <span class="altp-answer-letter">C</span>
+                        <span class="answer-text altp-answer-text"></span>
+                    </div>
+                </button>
+                <!-- Answer D -->
+                <button class="answer-btn altp-answer" data-index="3">
+                    <div class="altp-answer-shape">
+                        <span class="altp-answer-letter">D</span>
+                        <span class="answer-text altp-answer-text"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Result Display -->
+            <div id="question-result" class="altp-result hidden"></div>
+        </div>
+    </div>
+
+    <!-- EVENT MODAL - REDESIGNED -->
+    <div id="event-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="event-modal-card">
+            <div class="event-modal-glow"></div>
+            <div class="event-modal-header">
+                <span id="event-icon" class="event-icon-big">🎖️</span>
+                <span id="event-title" class="event-title-text">SỰ KIỆN</span>
+            </div>
+            <div class="event-modal-content">
+                <div class="event-image-container" id="event-image-container">
+                    <!-- Image will be inserted here dynamically -->
+                </div>
+                <p id="event-text" class="event-description">Nội dung sự kiện</p>
+            </div>
+            <div class="event-modal-footer">
+                <button id="btn-event-ok" class="event-btn-ok">
+                    <span>TIẾP TỤC</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Scripts in correct order -->
+    <script src="js/assets.js"></script>
+    <script src="js/entities.js"></script>
+    <script src="js/mechanics.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/sounds.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/parts_bar_controller.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,3329 @@
+/* =============================================
+   CSS VARIABLES
+   ============================================= */
+:root {
+    --primary: #c0392b;
+    --secondary: #2c3e50;
+    --accent: #f1c40f;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --text: #ecf0f1;
+    --text-muted: #95a5a6;
+    --panel-bg: rgba(20, 20, 40, 0.85);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --taskbar-width: 320px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    background: #0a0a15;
+    color: var(--text);
+}
+
+/* Global button font override */
+button,
+.btn,
+[class*="btn-"] {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Hidden class */
+.hidden {
+    display: none !important;
+}
+
+/* =============================================
+   CONFETTI
+   ============================================= */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confetti-fall 3s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* =============================================
+   FLOATING ACTION BUTTONS - VINTAGE MILITARY STYLE
+   ============================================= */
+
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    left: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* Military Button Base Style */
+.fab-button.fab-military {
+    width: auto;
+    min-width: 55px;
+    height: auto;
+    border-radius: 8px;
+    border: 3px solid;
+    border-image: linear-gradient(145deg, #8B7355, #4A3520) 1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    gap: 2px;
+    transition: all 0.25s ease;
+    box-shadow:
+        3px 3px 0 #1A0F05,
+        0 4px 15px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: visible;
+}
+
+.fab-button.fab-military::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 35%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+    border-radius: 5px 5px 0 0;
+    pointer-events: none;
+}
+
+.fab-emoji {
+    font-size: 1.4rem;
+    line-height: 1;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+/* 3D Image Icon for FAB buttons */
+.fab-img-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.4));
+    transition: transform 0.2s ease;
+}
+
+.fab-button:hover .fab-img-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* User uploaded image icons */
+.fab-icon-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+    transition: transform 0.2s ease;
+    border-radius: 4px;
+}
+
+.fab-button:hover .fab-icon-img {
+    transform: scale(1.15);
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.6));
+}
+
+.fab-label {
+    font-size: 0.5rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    color: #F5E6D3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Supply Crate Button - Army Green */
+.fab-crate {
+    background: linear-gradient(180deg, #556B2F 0%, #3D4F22 50%, #2D3A19 100%);
+}
+
+.fab-crate:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        4px 4px 0 #2A1A05,
+        0 6px 20px rgba(85, 107, 47, 0.5),
+        0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Tactical Book Button - Brown Leather */
+.fab-book {
+    background: linear-gradient(180deg, #8B4513 0%, #6B3410 50%, #4A250C 100%);
+}
+
+.fab-book:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        4px 4px 0 #2A1A05,
+        0 6px 20px rgba(139, 69, 19, 0.5),
+        0 0 15px rgba(192, 57, 43, 0.3);
+}
+
+.fab-book.pulse {
+    animation: pulse-book 1.5s infinite;
+}
+
+@keyframes pulse-book {
+
+    0%,
+    100% {
+        box-shadow: 3px 3px 0 #2A1A05, 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(192, 57, 43, 0.6);
+    }
+
+    50% {
+        box-shadow: 3px 3px 0 #2A1A05, 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 0 10px rgba(192, 57, 43, 0);
+    }
+}
+
+/* Dice Button - Transparent with just dice icons */
+.fab-dice-btn {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.fab-dice-btn::before {
+    display: none !important;
+}
+
+.fab-dice-btn .fab-label {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.fab-dice-btn:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.05);
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.fab-dice-btn:not(:disabled):active {
+    transform: scale(0.95) rotate(-3deg);
+}
+
+/* CSS 3D Dice Icon - Military Style */
+.fab-dice-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(145deg, #5a6a48 0%, #4a5a38 50%, #3a4a28 100%);
+    border: 2px solid #2a3a18;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        2px 2px 0 #1a2a0a,
+        inset 0 2px 4px rgba(255, 255, 255, 0.15),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+    transform: perspective(100px) rotateX(5deg) rotateY(-5deg);
+}
+
+.fab-dice-icon .dice-dot {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle at 30% 30%, #f1c40f, #d4a00a);
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(241, 196, 15, 0.6);
+}
+
+.fab-dice-btn:hover:not(:disabled) .fab-dice-icon {
+    transform: perspective(100px) rotateX(10deg) rotateY(-10deg) scale(1.1);
+}
+
+/* Premium 3D Dice Icon - Military Style */
+.dice-3d-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #5a6a48 0%, #4a5a38 50%, #3a4a28 100%);
+    border: 2px solid #2a3a18;
+    border-radius: 6px;
+    position: relative;
+    box-shadow:
+        3px 3px 0 #1a2a0a,
+        inset 0 2px 4px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+    transform: perspective(150px) rotateX(8deg) rotateY(-8deg);
+    transition: all 0.3s ease;
+}
+
+.dice-3d-icon .dice-dot {
+    width: 5px;
+    height: 5px;
+    background: radial-gradient(circle at 35% 35%, #f1c40f, #d4a00a);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 3px rgba(241, 196, 15, 0.6);
+}
+
+.dice-3d-icon .dot-1 {
+    top: 4px;
+    left: 4px;
+}
+
+.dice-3d-icon .dot-2 {
+    top: 4px;
+    right: 4px;
+}
+
+.dice-3d-icon .dot-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dice-3d-icon .dot-4 {
+    bottom: 4px;
+    left: 4px;
+}
+
+.dice-3d-icon .dot-5 {
+    bottom: 4px;
+    right: 4px;
+}
+
+.fab-dice-btn:hover:not(:disabled) .dice-3d-icon {
+    transform: perspective(150px) rotateX(15deg) rotateY(-15deg) scale(1.15);
+}
+
+/* Red Dual Dice Design */
+.dual-dice-container {
+    display: flex;
+    gap: 2px;
+    transform: rotate(-10deg);
+}
+
+.red-dice {
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(145deg, #ff4444 0%, #cc0000 50%, #990000 100%);
+    border: 1px solid #660000;
+    border-radius: 4px;
+    position: relative;
+    box-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.red-dice.dice-1 {
+    transform: rotate(15deg) translateY(2px);
+}
+
+.red-dice.dice-2 {
+    transform: rotate(-5deg) translateY(-2px);
+}
+
+.red-dice .dice-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+    border-radius: 50%;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Dice 1 - shows 1 (center dot) */
+.red-dice.dice-1 .dice-dot {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Dice 2 - shows 6 */
+.red-dice.dice-2 .dice-dot.d1 {
+    top: 3px;
+    left: 3px;
+}
+
+.red-dice.dice-2 .dice-dot.d2 {
+    top: 3px;
+    right: 3px;
+}
+
+.red-dice.dice-2 .dice-dot.d3 {
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+}
+
+.red-dice.dice-2 .dice-dot.d4 {
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+}
+
+.red-dice.dice-2 .dice-dot.d5 {
+    bottom: 3px;
+    left: 3px;
+}
+
+.red-dice.dice-2 .dice-dot.d6 {
+    bottom: 3px;
+    right: 3px;
+}
+
+.fab-dice-btn:hover:not(:disabled) .dual-dice-container {
+    transform: rotate(-10deg) scale(1.15);
+}
+
+.fab-dice-btn:hover:not(:disabled) .red-dice.dice-1 {
+    transform: rotate(25deg) translateY(0px);
+}
+
+.fab-dice-btn:hover:not(:disabled) .red-dice.dice-2 {
+    transform: rotate(-15deg) translateY(-4px);
+}
+
+.fab-button.fab-military:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    filter: grayscale(50%);
+}
+
+/* Current Turn Badge - Military Tag */
+.current-turn-badge {
+    background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+    border: 2px solid #f1c40f;
+    border-radius: 6px;
+    padding: 6px 12px;
+    text-align: center;
+    box-shadow:
+        2px 2px 0 #0f1a24,
+        0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.current-turn-badge span {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: #f1c40f;
+    letter-spacing: 0.05em;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Editor Button - Steel Gray */
+.fab-editor {
+    background: linear-gradient(180deg, #7f8c8d 0%, #5d6d7e 50%, #34495e 100%);
+}
+
+.fab-editor:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        4px 4px 0 #2A1A05,
+        0 6px 20px rgba(127, 140, 141, 0.5),
+        0 0 15px rgba(52, 73, 94, 0.4);
+}
+
+/* =============================================
+   MAP EDITOR POPUP - Positioned to corner for easy map access
+   ============================================= */
+.map-editor-popup {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    left: auto;
+    transform: none;
+    width: auto;
+    min-width: 280px;
+    max-width: 320px;
+    background: linear-gradient(180deg, rgba(44, 62, 80, 0.95) 0%, rgba(26, 37, 47, 0.95) 100%);
+    border: 2px solid #5D4E37;
+    border-radius: 10px;
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    z-index: 999;
+    animation: popup-slide-in 0.3s ease-out;
+    cursor: move;
+}
+
+@keyframes popup-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   RANK LEADERBOARD POPUP
+   ============================================= */
+.rank-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 95%;
+    background: linear-gradient(180deg, rgba(30, 40, 55, 0.98) 0%, rgba(20, 28, 40, 0.98) 100%);
+    border: 3px solid #f1c40f;
+    border-radius: 15px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(241, 196, 15, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    z-index: 1500;
+    animation: rank-popup-in 0.4s ease-out;
+}
+
+@keyframes rank-popup-in {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.rank-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 2px solid #f1c40f;
+    background: linear-gradient(180deg, rgba(241, 196, 15, 0.2) 0%, transparent 100%);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #f1c40f;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.rank-list {
+    padding: 15px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.rank-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.rank-item.current {
+    border: 2px solid #f1c40f;
+    background: rgba(241, 196, 15, 0.15);
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.3);
+}
+
+.rank-medal {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.rank-medal.gold {
+    background: linear-gradient(145deg, #ffd700, #b8860b);
+}
+
+.rank-medal.silver {
+    background: linear-gradient(145deg, #c0c0c0, #808080);
+}
+
+.rank-medal.bronze {
+    background: linear-gradient(145deg, #cd7f32, #8b4513);
+}
+
+.rank-medal.normal {
+    background: linear-gradient(145deg, #555, #333);
+}
+
+.rank-info {
+    flex: 1;
+}
+
+.rank-team-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.rank-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rank-progress-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rank-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.rank-position {
+    font-size: 0.75rem;
+    color: #95a5a6;
+    min-width: 45px;
+    text-align: right;
+}
+
+.rank-footer {
+    padding: 12px 20px;
+    border-top: 2px solid rgba(241, 196, 15, 0.3);
+    text-align: center;
+    font-weight: 700;
+    color: #2ecc71;
+    font-size: 0.95rem;
+}
+
+/* =============================================
+   SIDEBAR TANK RANKINGS
+   ============================================= */
+.rank-sidebar {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 500;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.rank-tanks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rank-tank-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.rank-tank-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.rank-tank-avatar.active {
+    animation: pulse-glow 1.5s infinite;
+    box-shadow: 0 0 20px currentColor;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.rank-tank-avatar img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.rank-number {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.rank-number.rank-1 {
+    background: linear-gradient(145deg, #ffd700, #ff8c00);
+    font-size: 0.9rem;
+}
+
+.rank-number.rank-2 {
+    background: linear-gradient(145deg, #c0c0c0, #808080);
+}
+
+.rank-number.rank-3 {
+    background: linear-gradient(145deg, #cd7f32, #8b4513);
+}
+
+.rank-number.rank-4,
+.rank-number.rank-5,
+.rank-number.rank-6,
+.rank-number.rank-7 {
+    background: linear-gradient(145deg, #555, #333);
+}
+
+/* Team Colors */
+.rank-tank-avatar.team-red {
+    border-color: #e74c3c;
+}
+
+/* =============================================
+   RACE PROGRESS BAR
+   ============================================= */
+.race-progress-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 40px;
+    z-index: 1000;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.race-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.race-start,
+.race-finish {
+    font-size: 1.5rem;
+    z-index: 2;
+}
+
+.race-start {
+    margin-right: 10px;
+}
+
+.race-finish {
+    margin-left: 10px;
+}
+
+.race-line {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.race-tank-icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: #333;
+    transition: left 0.5s ease;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.race-tank-icon img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.race-tank-icon:hover {
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.rank-tank-avatar.team-blue {
+    border-color: #3498db;
+}
+
+.rank-tank-avatar.team-green {
+    border-color: #2ecc71;
+}
+
+.rank-tank-avatar.team-orange {
+    border-color: #f39c12;
+}
+
+.rank-tank-avatar.team-purple {
+    border-color: #9b59b6;
+}
+
+.rank-tank-avatar.team-cyan {
+    border-color: #00bcd4;
+}
+
+.rank-tank-avatar.team-pink {
+    border-color: #e91e63;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 2px solid #5D4E37;
+    font-weight: 900;
+    font-size: 1rem;
+    color: #f1c40f;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(93, 78, 55, 0.3);
+}
+
+.editor-content {
+    padding: 15px;
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.editor-btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #5D4E37;
+    background: linear-gradient(180deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.editor-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.editor-btn.danger {
+    background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.editor-btn.danger:hover {
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+.editor-btn.success {
+    background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.editor-btn.success:hover {
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}
+
+.editor-btn.active {
+    box-shadow: 0 0 0 3px #f1c40f;
+}
+
+/* Node Palette */
+.node-palette {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.palette-title {
+    font-size: 0.85rem;
+    color: #f1c40f;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+}
+
+.palette-item {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: #F5E6D3;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.palette-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.palette-item.selected {
+    background: rgba(241, 196, 15, 0.3);
+    border-color: #f1c40f;
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+/* =============================================
+   TEAM STATUS POPUP - COMPACT BOTTOM BAR
+   ============================================= */
+.team-status-popup {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 95%;
+    background: linear-gradient(180deg, rgba(44, 62, 80, 0.95) 0%, rgba(26, 37, 47, 0.95) 100%);
+    border: 2px solid #5D4E37;
+    border-radius: 10px;
+    box-shadow:
+        0 -5px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    z-index: 999;
+    animation: popup-slide-up 0.3s ease-out;
+}
+
+@keyframes popup-slide-up {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes popup-scale-in {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 2px solid #5D4E37;
+    font-weight: 900;
+    font-size: 1rem;
+    color: #f1c40f;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(93, 78, 55, 0.3);
+}
+
+.popup-close {
+    background: #e74c3c;
+    border: 2px solid #c0392b;
+    color: white;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-close:hover {
+    background: #c0392b;
+    transform: scale(1.1);
+}
+
+.team-status-list {
+    padding: 10px 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+.team-status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(93, 78, 55, 0.5);
+    transition: all 0.2s;
+    min-width: 85px;
+    flex-shrink: 0;
+}
+
+.team-status-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.team-status-item.current {
+    border: 2px solid #f1c40f;
+    background: rgba(241, 196, 15, 0.15);
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.team-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.team-status-name {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-align: center;
+    color: #F5E6D3;
+    white-space: nowrap;
+}
+
+.team-stats-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+}
+
+.stat-bar-mini {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.65rem;
+}
+
+.stat-bar-mini .stat-icon {
+    font-size: 0.9rem;
+}
+
+/* Stat value text (X/X) */
+.stat-value {
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #F5E6D3;
+    min-width: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.stat-svg-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+}
+
+/* 3D Image Icons for stats */
+.stat-img-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.stat-bar-mini:hover .stat-img-icon {
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Engine Icon - Orange/Red gradient look */
+.stat-bar-mini:nth-child(1) .stat-svg-icon {
+    color: #e74c3c;
+    filter: drop-shadow(0 0 4px rgba(231, 76, 60, 0.5));
+}
+
+/* Tires Icon - Blue with glow */
+.stat-bar-mini:nth-child(2) .stat-svg-icon {
+    color: #3498db;
+    filter: drop-shadow(0 0 4px rgba(52, 152, 219, 0.5));
+}
+
+/* Steering Icon - Green with glow */
+.stat-bar-mini:nth-child(3) .stat-svg-icon {
+    color: #2ecc71;
+    filter: drop-shadow(0 0 4px rgba(46, 204, 113, 0.5));
+}
+
+.stat-bar-track {
+    width: 30px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s;
+}
+
+.stat-bar-fill.engine {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.stat-bar-fill.tires {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.stat-bar-fill.steering {
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+}
+
+/* =============================================
+   FLOATING GAME LOG
+   ============================================= */
+.game-log-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 300px;
+    max-height: 200px;
+    background: rgba(26, 26, 46, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 998;
+    overflow: hidden;
+}
+
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.log-toggle {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.game-log-list {
+    list-style: none;
+    padding: 10px 15px;
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 0.8rem;
+}
+
+.game-log-list li {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =============================================
+   GAME CONTAINER
+   ============================================= */
+#game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* =============================================
+   3D DICE
+   ============================================= */
+.dice-3d-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+    perspective: 600px;
+}
+
+.dice-3d-container.hidden {
+    display: none;
+}
+
+.dice-3d {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: dice-roll 1s ease-out;
+}
+
+@keyframes dice-roll {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateX(180deg) rotateY(90deg) rotateZ(45deg);
+    }
+
+    50% {
+        transform: rotateX(360deg) rotateY(180deg) rotateZ(90deg);
+    }
+
+    75% {
+        transform: rotateX(540deg) rotateY(270deg) rotateZ(135deg);
+    }
+
+    100% {
+        transform: rotateX(720deg) rotateY(360deg) rotateZ(0deg);
+    }
+}
+
+.dice-3d.rolling {
+    animation: dice-rolling 0.3s linear infinite;
+}
+
+@keyframes dice-rolling {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.dice-face {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background: linear-gradient(145deg, #5a6a48 0%, #4a5a38 50%, #3a4a28 100%);
+    border: 4px solid #2a3a18;
+    border-radius: 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.dice-face .dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle at 30% 30%, #f1c40f, #d4a00a);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(241, 196, 15, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+/* Vị trí các chấm */
+.dice-face .dot.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dice-face .dot.top-left {
+    top: 15%;
+    left: 15%;
+}
+
+.dice-face .dot.top-right {
+    top: 15%;
+    right: 15%;
+}
+
+.dice-face .dot.mid-left {
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+}
+
+.dice-face .dot.mid-right {
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+}
+
+.dice-face .dot.bot-left {
+    bottom: 15%;
+    left: 15%;
+}
+
+.dice-face .dot.bot-right {
+    bottom: 15%;
+    right: 15%;
+}
+
+.dice-face.front {
+    transform: translateZ(65px);
+}
+
+.dice-face.back {
+    transform: rotateY(180deg) translateZ(65px);
+}
+
+.dice-face.right {
+    transform: rotateY(90deg) translateZ(65px);
+}
+
+.dice-face.left {
+    transform: rotateY(-90deg) translateZ(65px);
+}
+
+.dice-face.top {
+    transform: rotateX(90deg) translateZ(65px);
+}
+
+.dice-face.bottom {
+    transform: rotateX(-90deg) translateZ(65px);
+}
+
+.dice-result {
+    text-align: center;
+    margin-top: 150px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    text-shadow: 0 0 25px var(--accent);
+}
+
+/* =============================================
+   GLASSMORPHISM TASKBAR
+   ============================================= */
+/* =============================================
+   TASKBAR - PROFESSIONAL COMMAND CENTER (LEFT)
+   ============================================= */
+.taskbar.glass {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* MOVED TO LEFT */
+    height: 100%;
+    width: var(--taskbar-width);
+    /* Clean Dark Military Theme */
+    background: #1e272e;
+    border-right: 3px solid #f39c12;
+    /* Gold border right */
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.taskbar.glass::before {
+    /* Subtle grid pattern instead of noise */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.taskbar.collapsed {
+    transform: translateX(calc((var(--taskbar-width) - 50px) * -1));
+    /* Collapses to Left */
+}
+
+/* Toggle Button on the Right of Taskbar */
+.taskbar-toggle {
+    position: absolute;
+    right: -25px;
+    /* Stick out */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 60px;
+    background: #f39c12;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    color: #1e272e;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 200;
+}
+
+.taskbar-toggle:hover {
+    background: #f1c40f;
+    width: 30px;
+}
+
+.taskbar.collapsed .toggle-icon {
+    transform: rotate(180deg);
+    /* Icon rotation */
+}
+
+.toggle-icon {
+    transition: transform 0.4s;
+}
+
+.taskbar-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Professional Header */
+.taskbar-header {
+    padding: 20px;
+    background: #2c3e50;
+    text-align: left;
+    border-bottom: 2px solid #f39c12;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Decorative Gold Trim */
+
+
+.taskbar-header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.taskbar-header h1::before {
+    content: '★';
+    color: #f39c12;
+}
+
+.header-subtitle {
+    font-size: 0.7rem;
+    color: #bdc3c7;
+    margin-top: 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-left: 28px;
+}
+
+/* Panel Titles */
+.panel-title {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #f39c12;
+    /* Gold */
+    margin: 15px 15px 5px 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel-title::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #f39c12;
+    border-radius: 50%;
+}
+
+/* Current Turn Panel - Clean Glass */
+.current-turn-panel {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 0 15px;
+    border-radius: 6px;
+}
+
+/* Avatar Badge */
+.current-team-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.team-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: 2px solid #f39c12;
+    outline-offset: 2px;
+    background: #34495e;
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-name {
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #ecf0f1;
+    letter-spacing: 0.5px;
+}
+
+.team-pos {
+    font-size: 0.75rem;
+    color: #95a5a6;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+
+/* Stats - Animated Bars */
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-icon {
+    font-size: 0.9rem;
+    width: 20px;
+    text-align: center;
+    color: #bdc3c7;
+}
+
+.mini-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mini-bar::after {
+    content: none;
+}
+
+/* Remove texture */
+
+.bar-fill {
+    height: 100%;
+    background: #2ecc71;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+}
+
+.bar-fill.low {
+    background: #e74c3c;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+    animation: bar-pulse 1s infinite;
+}
+
+@keyframes bar-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.stat-mini span:last-child {
+    font-weight: 400;
+    min-width: 20px;
+    text-align: right;
+    color: #bdc3c7;
+    font-size: 0.8rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Teams List */
+.teams-panel {
+    padding: 15px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.teams-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* Tighter list */
+}
+
+.team-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: transparent;
+    border-radius: 4px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.team-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.team-item.active {
+    background: rgba(243, 156, 18, 0.1);
+    /* Subtle Gold bg */
+    border: 1px solid #f39c12;
+    box-shadow: none;
+    animation: none;
+}
+
+.team-dot {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    /* Square dots */
+}
+
+/* Actions Panel */
+.actions-panel {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #182025;
+    /* Darker bottom area */
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-action {
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+
+/* Professional Roll Button */
+.btn-roll {
+    background: #e67e22;
+    color: #fff;
+    border-bottom: 3px solid #d35400;
+    /* Subtle 3D */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
+}
+
+.btn-roll:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #f39c12;
+    box-shadow: 0 6px 12px rgba(230, 126, 34, 0.3);
+}
+
+.btn-roll:active:not(:disabled) {
+    transform: translateY(2px);
+    border-bottom-width: 0;
+    margin-top: 3px;
+}
+
+/* Professional Question Button */
+.btn-question {
+    background: #2980b9;
+    color: #fff;
+    border-bottom: 3px solid #1f618d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
+}
+
+.btn-question:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #3498db;
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-question:active:not(:disabled) {
+    transform: translateY(2px);
+    border-bottom-width: 0;
+    margin-top: 3px;
+}
+
+/* Remove shine effect for cleaner tactical look */
+.btn-question::after,
+.btn-roll::after {
+    display: none;
+}
+
+.btn-dev {
+    background: transparent;
+    color: #576574;
+    font-size: 0.7rem;
+    padding: 5px;
+    border: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.btn-dev:hover {
+    background: rgba(255, 255, 255, 0.02);
+    color: #bdc3c7;
+}
+
+.btn-dev.active {
+    background: #27ae60;
+    color: #fff;
+    border-style: solid;
+}
+
+/* Path Editor Controls */
+.path-editor-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-small {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #34495e;
+    color: #bdc3c7;
+    flex: 1;
+}
+
+.btn-small:hover {
+    background: #3d566e;
+    color: #fff;
+}
+
+.btn-small.active {
+    background: #27ae60;
+    color: #fff;
+}
+
+.btn-small.btn-danger {
+    background: #c0392b;
+    color: #fff;
+}
+
+.btn-small.btn-danger:hover {
+    background: #e74c3c;
+}
+
+.btn-small.btn-success {
+    background: #27ae60;
+    color: #fff;
+}
+
+.btn-small.btn-success:hover {
+    background: #2ecc71;
+}
+
+/* Log Panel */
+.log-panel {
+    padding: 15px;
+    max-height: 150px;
+    overflow: hidden;
+}
+
+#game-log {
+    list-style: none;
+    font-size: 0.75rem;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#game-log li {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    animation: log-slide-in 0.3s ease;
+}
+
+@keyframes log-slide-in {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   MODALS
+   ============================================= */
+/* =============================================
+   MODAL - TOP SECRET DOSSIER THEME
+   ============================================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.85);
+    /* Darker backdrop */
+    backdrop-filter: blur(8px);
+}
+
+.modal-card {
+    position: relative;
+    border-radius: 2px;
+    /* Paper-like corners */
+    overflow: hidden;
+    animation: modal-stamp-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes modal-stamp-in {
+    0% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.glass-card {
+    background: #fdfbf7;
+    /* Old Paper Color */
+    border: 8px solid #333;
+    /* Thick dark border */
+    background-image:
+        linear-gradient(#eee .1em, transparent .1em);
+    /* Lined paper effect */
+    background-size: 100% 1.5em;
+}
+
+/* Red "TOP SECRET" Stamp on background */
+.glass-card::before {
+    content: 'TỐI MẬT';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(192, 57, 43, 0.1);
+    border: 10px solid rgba(192, 57, 43, 0.1);
+    padding: 20px 60px;
+    border-radius: 20px;
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.question-card-big {
+    min-width: 800px;
+    max-width: 900px;
+    min-height: 500px;
+}
+
+.modal-header {
+    padding: 20px 30px;
+    background: #2c3e50;
+    /* Dark Blue Header */
+    color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid #c0392b;
+    /* Red line separator */
+    position: relative;
+    z-index: 1;
+}
+
+.header-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.difficulty-badge {
+    padding: 5px 15px;
+    background: #c0392b;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px dashed #fff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.modal-body {
+    padding: 40px 50px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.question-text-big {
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    /* Serif font for document feel */
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    text-shadow: 0 1px 0 #fff;
+}
+
+/* Answers Grid */
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.answer-btn {
+    position: relative;
+    background: #fff;
+    border: 2px solid #333;
+    padding: 20px;
+    min-height: 80px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    box-shadow: 4px 4px 0 #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 2px;
+}
+
+.answer-btn:hover:not(:disabled) {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #333;
+    background: #f9f9f9;
+}
+
+.answer-btn:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #333;
+}
+
+/* .answer-letter và .answer-text được định nghĩa bên dưới với style đẹp hơn */
+
+/* Correct/Wrong States */
+.answer-btn.correct {
+    background: #d4edda;
+    border-color: #155724;
+    box-shadow: 4px 4px 0 #155724;
+}
+
+.answer-btn.correct .answer-letter {
+    background: #155724;
+}
+
+/* ĐÚNG text removed per user request */
+
+.answer-btn.wrong {
+    background: #f8d7da;
+    border-color: #721c24;
+    box-shadow: 4px 4px 0 #721c24;
+}
+
+.answer-btn.wrong .answer-letter {
+    background: #721c24;
+    color: #fff;
+}
+
+.modal-footer {
+    padding: 20px;
+    background: transparent;
+}
+
+/* .result-text được định nghĩa bên dưới với animation */
+
+/* Hide original flip card mechanics if not needed or override */
+.flip-inner {
+    transition: none;
+    transform-style: flat;
+}
+
+.flip-front,
+.flip-back {
+    position: static;
+    backface-visibility: visible;
+    border: none;
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+/* Flip back - hidden by default, styled for flipped state */
+.flip-back {
+    display: none;
+    transform: rotateY(180deg);
+    font-size: 2rem;
+    justify-content: center;
+}
+
+.flip-back.correct-back {
+    background: linear-gradient(135deg, var(--success), #27ae60);
+}
+
+.flip-back.wrong-back {
+    background: linear-gradient(135deg, var(--danger), #c0392b);
+}
+
+.answer-letter {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--accent), #f39c12);
+    color: #1a1a2e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.answer-text {
+    flex: 1;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.answer-btn.correct .flip-front {
+    border-color: var(--success);
+    background: rgba(39, 174, 96, 0.3);
+}
+
+.answer-btn.wrong .flip-front {
+    border-color: var(--danger);
+    background: rgba(231, 76, 60, 0.3);
+}
+
+.answer-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* =============================================
+   RESULT TEXT
+   ============================================= */
+.result-text {
+    font-size: 1.3rem;
+    font-weight: 900;
+    padding: 12px 30px;
+    border-radius: 25px;
+    display: inline-block;
+    animation: result-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes result-pop {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* =============================================
+   CIRCULAR TIMER
+   ============================================= */
+.circular-timer {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.circular-timer svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circular-timer .timer-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 6;
+}
+
+.circular-timer .timer-progress {
+    fill: none;
+    stroke: #f39c12;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s linear;
+}
+
+.circular-timer .timer-progress.urgent {
+    stroke: #e74c3c;
+    animation: timer-pulse 0.5s infinite;
+}
+
+@keyframes timer-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.circular-timer .timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.result-text.correct {
+    background: linear-gradient(135deg, var(--success), #27ae60);
+    color: #fff;
+    box-shadow: 0 0 30px rgba(39, 174, 96, 0.5);
+}
+
+.result-text.wrong {
+    background: linear-gradient(135deg, var(--danger), #c0392b);
+    color: #fff;
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.5);
+}
+
+.result-text.hidden {
+    display: none;
+}
+
+/* =============================================
+   EVENT MODAL - WAR BULLETIN / MILITARY DOSSIER STYLE
+   ============================================= */
+.event-modal-card {
+    position: relative;
+    min-width: 420px;
+    max-width: 520px;
+    /* Old paper/parchment background */
+    background: #f4e4c1;
+    border-radius: 4px;
+    overflow: hidden;
+    border: none;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        inset 0 0 80px rgba(139, 90, 43, 0.25);
+    animation: bulletin-slide 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Paper texture overlay */
+.event-modal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Military stamp watermark */
+.event-modal-card::after {
+    content: '★ LỆNH ★';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(180, 20, 20, 0.08);
+    border: 6px solid rgba(180, 20, 20, 0.08);
+    padding: 10px 40px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: 0.2em;
+}
+
+@keyframes bulletin-slide {
+    0% {
+        transform: translateY(-30px) scale(0.95);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Hide old glow */
+.event-modal-glow {
+    display: none;
+}
+
+/* Header - Military Banner Style */
+.event-modal-header {
+    padding: 18px 25px;
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+    border-bottom: 4px solid #c0392b;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Star decorations on header */
+.event-modal-header::before {
+    content: '★';
+    position: absolute;
+    left: 15px;
+    font-size: 1rem;
+    color: #f1c40f;
+}
+
+.event-modal-header::after {
+    content: '★';
+    position: absolute;
+    right: 15px;
+    font-size: 1rem;
+    color: #f1c40f;
+}
+
+.event-icon-big {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: none;
+    margin-left: 20px;
+}
+
+/* Title - Gold Military Text */
+.event-title-text {
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #f1c40f;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto', sans-serif;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: #f1c40f;
+    background-clip: unset;
+}
+
+/* Content Area - Paper Style */
+.event-modal-content {
+    padding: 30px 35px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background: transparent;
+}
+
+/* Image container - Document stamp frame */
+.event-image-container {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.event-image-container img {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 8px;
+    border: 3px solid #8b5a2b;
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.5);
+    animation: none;
+}
+
+/* Description - Typewriter Style */
+.event-description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #2c1810;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: none;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* Footer */
+.event-modal-footer {
+    padding: 20px 35px 30px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+/* Button - Red Military Command Style */
+.event-btn-ok {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(180deg, #c0392b 0%, #922b21 100%);
+    border: 2px solid #7b241c;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.event-btn-ok:hover {
+    background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.event-btn-ok:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.event-btn-ok .btn-arrow {
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.event-btn-ok:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Event type specific - DANGER (Red Alert) */
+.event-modal-card.event-danger .event-modal-header {
+    background: linear-gradient(135deg, #922b21 0%, #641e16 100%);
+    border-bottom-color: #c0392b;
+}
+
+.event-modal-card.event-danger::after {
+    content: '⚠ NGUY HIỂM ⚠';
+    color: rgba(200, 50, 50, 0.12);
+    border-color: rgba(200, 50, 50, 0.12);
+}
+
+/* Event type specific - SUCCESS (Victory) */
+.event-modal-card.event-success .event-modal-header {
+    background: linear-gradient(135deg, #1e8449 0%, #145a32 100%);
+    border-bottom-color: #27ae60;
+}
+
+.event-modal-card.event-success .event-title-text {
+    color: #2ecc71;
+    -webkit-text-fill-color: #2ecc71;
+}
+
+.event-modal-card.event-success::after {
+    content: '★ CHIẾN THẮNG ★';
+    color: rgba(46, 204, 113, 0.12);
+    border-color: rgba(46, 204, 113, 0.12);
+}
+
+/* =============================================
+   DIFFICULTY BADGES
+   ============================================= */
+.difficulty-badge {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.difficulty-badge.stage-1 {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: #fff;
+}
+
+.difficulty-badge.stage-2 {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+    color: #fff;
+}
+
+.difficulty-badge.stage-3 {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    color: #1a1a2e;
+}
+
+.difficulty-badge.stage-4 {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    color: #fff;
+}
+
+.difficulty-badge.stage-5 {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    color: #fff;
+}
+
+/* =============================================
+   SCREEN SHAKE
+   ============================================= */
+.shake {
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+    .altp-container {
+        width: 95vw;
+        padding: 20px;
+    }
+
+    .altp-answers {
+        grid-template-columns: 1fr;
+    }
+
+    .altp-question-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* =============================================
+   MODAL BASE STYLES
+   ============================================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    pointer-events: auto;
+    /* Ensure clickable */
+}
+
+.modal.hidden {
+    display: none !important;
+}
+
+/* =============================================
+   MILITARY DOSSIER / OLD NEWSPAPER STYLE - QUESTION MODAL
+   ============================================= */
+
+/* Backdrop with sepia/aged effect */
+.altp-backdrop {
+    background: radial-gradient(ellipse at center, rgba(40, 30, 20, 0.95) 0%, rgba(20, 15, 10, 0.98) 100%);
+}
+
+/* Main container - Old Paper Style */
+.altp-container {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    max-width: 800px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    animation: dossier-open 0.6s ease-out;
+    background: #f4e4c1;
+    border-radius: 4px;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 100px rgba(139, 90, 43, 0.3);
+    overflow: hidden;
+}
+
+/* Paper texture overlay */
+.altp-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* TOP SECRET Stamp */
+.altp-container::after {
+    content: 'TỐI MẬT';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(180, 20, 20, 0.12);
+    border: 8px solid rgba(180, 20, 20, 0.12);
+    padding: 15px 50px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+    letter-spacing: 0.3em;
+}
+
+@keyframes dossier-open {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotateX(-10deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateX(0);
+    }
+}
+
+/* Dossier Header - Military Style */
+.altp-timer-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid #c0392b;
+}
+
+.altp-timer-container::before {
+    content: '★ HỒ SƠ KIỂM TRA ★';
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f1c40f;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.altp-timer {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border: 3px solid #c0392b;
+}
+
+.altp-timer svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.altp-timer .timer-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 5;
+}
+
+.altp-timer .timer-progress {
+    fill: none;
+    stroke: #c0392b;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear, stroke 0.3s;
+}
+
+.altp-timer .timer-progress.urgent {
+    stroke: #e74c3c;
+    animation: timer-pulse 0.5s infinite;
+}
+
+.altp-timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+}
+
+/* Difficulty Badge - Military Classification */
+.altp-difficulty {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    background: #c0392b;
+}
+
+.altp-difficulty .difficulty-badge {
+    background: transparent;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    padding: 0;
+    border: none;
+}
+
+/* Question Box - Typewriter Style */
+.altp-question-box {
+    position: relative;
+    z-index: 10;
+    width: calc(100% - 60px);
+    max-width: none;
+    background: transparent;
+    border: none;
+    padding: 30px;
+    margin: 25px 30px;
+    clip-path: none;
+    box-shadow: none;
+}
+
+.altp-question-box::before {
+    display: none;
+}
+
+/* Decorative lines */
+.altp-question-box::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-image: repeating-linear-gradient(transparent,
+            transparent 28px,
+            rgba(0, 0, 0, 0.05) 28px,
+            rgba(0, 0, 0, 0.05) 29px);
+    pointer-events: none;
+}
+
+.altp-question-inner {
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.altp-question-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #2c1810;
+    line-height: 1.8;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    text-shadow: none;
+}
+
+/* Answers Grid - 2 columns Military Style */
+.altp-answers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: calc(100% - 60px);
+    max-width: none;
+    margin: 0 30px 30px 30px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Answer Button - Military Document Style */
+.altp-answer {
+    background: linear-gradient(180deg, #f8f3e8 0%, #f0e6d0 100%);
+    border: 2px solid #8b7355;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    clip-path: none;
+    position: relative;
+    min-height: 60px;
+    border-radius: 4px;
+    box-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.altp-answer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+/* Red marker line on left */
+.altp-answer::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #c0392b;
+    border-radius: 4px 0 0 4px;
+}
+
+.altp-answer-shape {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px 15px 25px;
+    gap: 15px;
+}
+
+.altp-answer-letter {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #c0392b;
+    min-width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #c0392b;
+    border-radius: 50%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.altp-answer-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #2c1810;
+    text-align: left;
+    flex: 1;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+}
+
+/* Answer States - Military Dossier Style */
+.altp-answer:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: #5a4a3a;
+    box-shadow:
+        3px 3px 0 rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    background: linear-gradient(180deg, #fff8ee 0%, #f5ebd8 100%);
+}
+
+.altp-answer:hover:not(:disabled)::after {
+    background: #2c3e50;
+}
+
+.altp-answer.selected {
+    background: linear-gradient(180deg, #fef3cd 0%, #fce8a6 100%);
+    border-color: #d4a000;
+    animation: stamp-blink 0.6s infinite;
+}
+
+.altp-answer.selected::after {
+    background: #f1c40f;
+    width: 6px;
+}
+
+.altp-answer.selected .altp-answer-letter {
+    color: #d4a000;
+    border-color: #d4a000;
+}
+
+@keyframes stamp-blink {
+
+    0%,
+    100% {
+        box-shadow:
+            2px 2px 0 rgba(0, 0, 0, 0.1),
+            0 0 15px rgba(241, 196, 15, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            2px 2px 0 rgba(0, 0, 0, 0.1),
+            0 0 25px rgba(241, 196, 15, 0.6);
+    }
+}
+
+.altp-answer.correct {
+    background: linear-gradient(180deg, #d4edda 0%, #c3e6cb 100%);
+    border-color: #28a745;
+    animation: none;
+}
+
+.altp-answer.correct::after {
+    background: #28a745;
+    width: 6px;
+}
+
+.altp-answer.correct .altp-answer-letter {
+    color: #28a745;
+    border-color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.altp-answer.correct .altp-answer-text {
+    color: #155724;
+    font-weight: 700;
+}
+
+.altp-answer.wrong {
+    background: linear-gradient(180deg, #f8d7da 0%, #f5c6cb 100%);
+    border-color: #dc3545;
+    animation: none;
+}
+
+.altp-answer.wrong::after {
+    background: #dc3545;
+    width: 6px;
+}
+
+.altp-answer.wrong .altp-answer-letter {
+    color: #dc3545;
+    border-color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.altp-answer.wrong .altp-answer-text {
+    color: #721c24;
+    text-decoration: line-through;
+}
+
+.altp-answer:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Result Display - Stamp Style */
+.altp-result {
+    font-size: 1.4rem;
+    font-weight: 900;
+    padding: 12px 25px;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 3px solid;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.altp-result.correct {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    border-color: #28a745;
+}
+
+.altp-result.wrong {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+    border-color: #dc3545;
+}
+
+/* ============================================= 
+   PERMANENT PARTS BAR - Fixed at Bottom Center-Right
+   ============================================= */
+.permanent-parts-bar {
+    position: fixed;
+    bottom: 0;
+    left: 65%;
+    /* Shifted right from center */
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 95%;
+    height: auto;
+    background: linear-gradient(0deg, rgba(40, 44, 52, 0.95) 0%, rgba(40, 44, 52, 0.92) 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 6px 15px;
+    border-top: 2px solid #d4af37;
+}
+
+.parts-bar-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.parts-bar-icon {
+    font-size: 16px;
+}
+
+.parts-bar-title {
+    font-size: 12px;
+    font-weight: 900;
+    color: #d4af37;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+}
+
+.parts-bar-teams {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.parts-bar-teams::-webkit-scrollbar {
+    height: 4px;
+}
+
+.parts-bar-teams::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 2px;
+}
+
+.parts-team-card {
+    min-width: 90px;
+    max-width: 95px;
+    background: rgba(30, 33, 39, 0.85);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 6px;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.parts-team-card.active {
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    transform: scale(1.03);
+}
+
+.parts-team-name {
+    font-size: 9px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 4px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.parts-stat-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 3px;
+}
+
+.parts-stat-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.parts-stat-bar-bg {
+    flex: 1;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.parts-stat-bar-fill {
+    height: 100%;
+    transition: width 0.3s;
+    border-radius: 2px;
+}
+
+.parts-stat-bar-fill.engine {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.parts-stat-bar-fill.tires {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.parts-stat-bar-fill.steering {
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+}
+
+.parts-stat-value {
+    font-size: 8px;
+    font-weight: bold;
+    color: #fff;
+    min-width: 22px;
+    text-align: right;
+}
+
+/* No margin needed - parts bar is at bottom now */
+/* Drag & Resize Controls for Parts Bar */
+.parts-drag-handle {
+    cursor: grab;
+    font-size: 12px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    margin-right: 4px;
+}
+
+.parts-drag-handle:hover {
+    opacity: 1;
+}
+
+.parts-drag-handle:active {
+    cursor: grabbing;
+}
+
+.parts-bar-controls {
+    margin-left: auto;
+    display: flex;
+    gap: 4px;
+}
+
+.parts-btn-resize,
+.parts-btn-reset {
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #d4af37;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.parts-btn-resize:hover,
+.parts-btn-reset:hover {
+    background: rgba(212, 175, 55, 0.3);
+    transform: scale(1.1);
+}
+
+.permanent-parts-bar.dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* ============================================= 
+   RANK SIDEBAR - Right side team rankings
+   ============================================= */
+#rank-sidebar {
+    position: fixed;
+    right: 10px;
+    top: 80px;
+    width: 140px;
+    background: linear-gradient(135deg, rgba(30, 30, 40, 0.95), rgba(20, 20, 30, 0.95));
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    z-index: 900;
+}
+
+.rank-header {
+    font-size: 14px;
+    font-weight: bold;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.rank-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.rank-item.active {
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.rank-number {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d4af37;
+    min-width: 20px;
+}
+
+.rank-tank-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid;
+}
+
+.rank-info {
+    flex: 1;
+    font-size: 10px;
+}
+
+.rank-team-name {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.rank-position {
+    color: #aaa;
+    font-size: 9px;
+}

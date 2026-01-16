@@ -1,0 +1,149 @@
+
+/* ============================================= 
+   PERMANENT PARTS BAR - Fixed at Top
+   ============================================= */
+.permanent-parts-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background: linear-gradient(180deg, 
+        rgba(40, 44, 52, 0.95) 0%, 
+        rgba(40, 44, 52, 0.92) 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 12px 20px;
+    border-bottom: 3px solid #d4af37;
+}
+
+.parts-bar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.parts-bar-icon {
+    font-size: 24px;
+}
+
+.parts-bar-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+.parts-bar-teams {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbar */
+.parts-bar-teams::-webkit-scrollbar {
+    height: 6px;
+}
+
+.parts-bar-teams::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.parts-bar-teams::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 3px;
+}
+
+.parts-team-card {
+    min-width: 120px;
+    max-width: 140px;
+    background: rgba(30, 33, 39, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.parts-team-card.active {
+    border-color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    transform: scale(1.05);
+}
+
+.parts-team-name {
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.parts-stat-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+}
+
+.parts-stat-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.parts-stat-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.parts-stat-bar-fill {
+    height: 100%;
+    transition: width 0.3s;
+    border-radius: 3px;
+}
+
+.parts-stat-bar-fill.engine {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.parts-stat-bar-fill.tires {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.parts-stat-bar-fill.steering {
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+}
+
+.parts-stat-value {
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    min-width: 30px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Adjust game container to not be covered by parts bar */
+#game-container {
+    margin-top: 150px !important;
+}
+
+/* Adjust confetti container */
+#confetti-container {
+    top: 150px;
+}

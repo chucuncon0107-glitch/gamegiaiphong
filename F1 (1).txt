@@ -1,0 +1,59 @@
+﻿Tên game: “”
+
+
+Luật chơi:
+
+
+ 7 đội chơi được đặt trong bản đồ, mô phỏng cung đường tiến công xuất phát từ vòng ngoài và tiến vào dinh độc lập. Bản đồ trò chơi được chia thành nhiều chặng gắn với các chiến dịch và mốc lịch sử quan trọng trong quá trình giải phóng đất nước, chặng cuối cùng là húc cổng Dinh Độc Lập, biểu trưng cho thắng lợi hoàn toàn của Chiến dịch Hồ Chí Minh. Các chặng là Phước Long, Tây Nguyên, Huế- Đà Nẵng, Sài Gòn. đi qua mỗi chặng, xe của đội chơi sẽ được hoàn lại độ bền tất cả bộ phận.
+
+
+Mỗi đội chơi sẽ có 1 chiếc xe và sử dụng xúc xắc để di chuyển, với mỗi số xúc xắc gieo được đội chơi có quyền tiến lên bằng với số xúc xắc đã gieo. 
+
+
+Tuy nhiên phải có đầy đủ các bộ phận của xe thì xe mới có thể di chuyển mượt mà được như vậy, nếu thiếu các bộ phận sẽ mất đi một số chức năng tương ứng sau đây: 
+
+
++Động cơ: nếu xe mất động cơ, đội chơi khi gieo xúc xắc sẽ chỉ đi được 1 hoặc 2 ô, gieo xúc xắc ra số từ 1-3 sẽ được đi 1 ô, từ 4-6 sẽ được đi 2 ô.
+
+
++Lốp xe: không có lốp thì xe sẽ rất trơn, xe vẫn sẽ đi với số ô tương ứng trên xúc xắc, nhưng khi gặp ô điểm thưởng, xe sẽ vượt lên trên ô đấy 1 ô và không được nhận thưởng (nếu xe đi vào ô chướng ngại vẫn sẽ bị dính như thường)
+
+
++Vô lăng: nếu không có vô lăng xe sẽ mất định hướng, đội chơi sẽ được gieo xúc xắc 2 lần. Lần 1 để quyết định số ô di chuyển, lần 2 sẽ quyết định đi tiến hay lùi, số lẻ thì lùi chẵn thì tiến.
+
+
+Mỗi đội được xuất phát với đầy đủ bộ phận của xe, mỗi bộ phận sẽ bị hao mòn qua các lượt chơi: Động cơ 3 lượt, lốp xe 2 lượt, vô lăng 4 lượt. Nếu mất độ bền cả động cơ và vô lăng thì đội chơi sẽ chỉ đi được 1 ô, tiến hoặc lùi ( mất cả 3 nấc)
+
+
+Xúc ra 1 thì sẽ nhảy thẳng tới chặng kế tiếp. Và ở mỗi chặng sẽ đc fill +1 tất cả ( vạch máu có 3 nấc mất tất sẽ kích hiệu ứng) 
+
+
+Đội nào giành được quyền trả lời trước và trả lời đúng sẽ được gieo xúc xắc để di chuyển. Trên các ô cũng sẽ có những ô bonus và phạt như sau:
+
+
+Ô
+	Hiệu ứng
+	Tổng tiến công
+	sửa chữa hoàn toàn độ bền của 3 bộ phận 
+	Hỗn chiến
+	-1 độ bền của cả 3 bộ phận
+	Thời cơ
+	+1 độ bền cho cả 3 bộ phận
+	Nguỵ
+	Đổi vị trí 2 đội bất kỳ gần mình nhất
+	Thần tốc
+	x2 số xúc xắc
+	Gia cố
+	 lượt chơi kế tiếp không bị mất độ bền
+	Đóng băng lực lượng
+	Mất lượt 
+	vô lăng
+	+3 (full vạch) vô lăng
+	bom
+	Mất hết độ bền cả 3 bộ phận 
+	động cơ
+	+3 động cơ
+	bánh xe:+3 bánh xe
+
+
+Ở cuối đội nào về trc sẽ có hiệu ứng húc cổng dinh ( có thể ghép vid)

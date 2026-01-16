@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test Modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 style="color: white; text-align: center; margin-top: 50px;">Test Question Modal</h1>
+
+    <button onclick="showModal()"
+        style="display: block; margin: 20px auto; padding: 20px 40px; font-size: 18px; cursor: pointer;">
+        HIỆN CÂU HỎI
+    </button>
+
+    <!-- QUESTION MODAL -->
+    <div id="question-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card question-card-big glass-card">
+            <div class="modal-header">
+                <span id="question-difficulty" class="difficulty-badge stage-1">PHƯỚC LONG</span>
+                <span class="header-text">❓ CÂU HỎI</span>
+                <div class="circular-timer">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="timer-progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <span class="timer-text">15</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p id="question-text" class="question-text-big">Đây là câu hỏi test. Bạn có thấy modal này không?</p>
+                <div class="answers-grid">
+                    <button class="answer-btn flip-card">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <span class="answer-letter">A</span>
+                                <span class="answer-text">Đáp án A</span>
+                            </div>
+                            <div class="flip-back"></div>
+                        </div>
+                    </button>
+                    <button class="answer-btn flip-card">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <span class="answer-letter">B</span>
+                                <span class="answer-text">Đáp án B</span>
+                            </div>
+                            <div class="flip-back"></div>
+                        </div>
+                    </button>
+                    <button class="answer-btn flip-card">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <span class="answer-letter">C</span>
+                                <span class="answer-text">Đáp án C</span>
+                            </div>
+                            <div class="flip-back"></div>
+                        </div>
+                    </button>
+                    <button class="answer-btn flip-card">
+                        <div class="flip-inner">
+                            <div class="flip-front">
+                                <span class="answer-letter">D</span>
+                                <span class="answer-text">Đáp án D</span>
+                            </div>
+                            <div class="flip-back"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="hideModal()" style="padding: 10px 30px; cursor: pointer;">ĐÓNG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            console.log("Showing modal...");
+            const modal = document.getElementById('question-modal');
+            console.log("Modal element:", modal);
+            console.log("Has hidden class:", modal.classList.contains('hidden'));
+            modal.classList.remove('hidden');
+            console.log("Removed hidden class, now has:", modal.classList.contains('hidden'));
+        }
+
+        function hideModal() {
+            document.getElementById('question-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>
