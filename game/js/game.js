@@ -26,9 +26,9 @@ class Game {
         this.canMoveTank = false; // Cho phép click để di chuyển
         this.pendingMoves = 0; // Số ô được phép di chuyển
 
-        // Stages (node indices for checkpoints)
+        // Stages (node indices for checkpoints) - Theo luật F1.txt
         this.stageCheckpoints = [13, 19, 31, 40, 51]; // Các checkpoint trên bản đồ
-        this.stageNames = ['Xuất phát', 'Checkpoint 1', 'Checkpoint 2', 'Checkpoint 3', 'Checkpoint 4', 'Checkpoint 5', 'Dinh Độc Lập'];
+        this.stageNames = ['Xuất phát', 'Phước Long', 'Tây Nguyên', 'Huế - Đà Nẵng', 'Sài Gòn', 'Dinh Độc Lập'];
 
         // Thiết lập đường đi mặc định (không sử dụng editor)
         this.initDefaultPath();
@@ -60,10 +60,17 @@ class Game {
     // Load đường đi từ file JSON
     async loadMapPath() {
         try {
-            const response = await fetch('./js/map_path.json');
+            // Add cache-busting to force reload
+            const cacheBuster = '?v=' + Date.now();
+            const response = await fetch('./js/map_path.json' + cacheBuster);
             if (response.ok) {
                 this.mapNodes = await response.json();
                 console.log(`✅ Loaded ${this.mapNodes.length} map nodes from JSON`);
+
+                // DEBUG: Log tile types at positions 2 and 16
+                console.log(`📍 Ô thứ 2 (index 2): type = ${this.mapNodes[2]?.type}`);
+                console.log(`📍 Ô thứ 16 (index 16): type = ${this.mapNodes[16]?.type}`);
+
                 return;
             }
         } catch (error) {
@@ -631,7 +638,14 @@ class Game {
 
         // CASE 3: BÌNH THƯỜNG HOẶC MẤT ĐỘNG CƠ
         soundManager.playDiceRoll(2000);
-        const diceValue = Math.floor(Math.random() * 6) + 1;
+
+        // Improved random using crypto API for better randomness
+        const getRandomDice = () => {
+            const array = new Uint32Array(1);
+            crypto.getRandomValues(array);
+            return (array[0] % 6) + 1;
+        };
+        const diceValue = getRandomDice();
 
         dice3D.roll(diceValue).then(() => {
             this.log(`🎲 Xúc xắc: ${diceValue}`);
@@ -697,10 +711,17 @@ class Game {
 
     // Xử lý mất vô lăng: Gieo 2 lần
     async handleSteeringLossRoll(team) {
+        // Improved random function
+        const getRandomDice = () => {
+            const array = new Uint32Array(1);
+            crypto.getRandomValues(array);
+            return (array[0] % 6) + 1;
+        };
+
         // Roll 1: Distance
         this.log(`🎲 Lần 1: Xác định số bước...`);
         soundManager.playDiceRoll(1500);
-        const val1 = Math.floor(Math.random() * 6) + 1;
+        const val1 = getRandomDice();
         await dice3D.roll(val1);
 
         let cellsToMove = val1;
@@ -714,7 +735,7 @@ class Game {
         // Roll 2: Direction
         this.log(`🎲 Lần 2: Xác định hướng (Lẻ=Lùi, Chẵn=Tiến)...`);
         soundManager.playDiceRoll(1500);
-        const val2 = Math.floor(Math.random() * 6) + 1;
+        const val2 = getRandomDice();
         await dice3D.roll(val2);
 
         // Quy ước: Chẵn (2,4,6) = Tiến, Lẻ (1,3,5) = Lùi
@@ -848,32 +869,55 @@ class Game {
         // Play tank movement sound
         if (typeof soundManager !== 'undefined') soundManager.play('tank_move');
 
-        // Đếm số bước di chuyển thực tế
-        let stepCount = 0;
+        // Di chuyển từng bước, DỪNG LẠI tại mỗi checkpoint
+        const direction = targetPosition > startPos ? 1 : -1;
+        let currentPos = startPos;
 
-        // Di chuyển từng bước
-        if (targetPosition > startPos) {
-            // Di chuyển tiến
-            for (let i = startPos; i < targetPosition; i++) {
-                stepCount++;
-                console.log(`[MOVE] Step ${stepCount}: ${i} -> ${i + 1}`);
-                await this.renderer.startMoveAnimation(this.currentTurn, i, i + 1, 250);
-                team.position = i + 1;
-                this.updateUI();
-            }
-        } else {
-            // Di chuyển lùi
-            for (let i = startPos; i > targetPosition; i--) {
-                stepCount++;
-                console.log(`[MOVE] Step ${stepCount}: ${i} -> ${i - 1}`);
-                await this.renderer.startMoveAnimation(this.currentTurn, i, i - 1, 250);
-                team.position = i - 1;
-                this.updateUI();
+        while (currentPos !== targetPosition) {
+            const nextPos = currentPos + direction;
+
+            console.log(`[MOVE] Step: ${currentPos} -> ${nextPos}`);
+            await this.renderer.startMoveAnimation(this.currentTurn, currentPos, nextPos, 250);
+            team.position = nextPos;
+            currentPos = nextPos;
+            this.updateUI();
+
+            // Kiểm tra có vượt checkpoint không (chỉ khi đi TIẾN)
+            if (direction > 0) {
+                for (const checkpoint of this.stageCheckpoints) {
+                    if (currentPos === checkpoint && currentPos !== targetPosition) {
+                        // DỪNG LẠI tại checkpoint, hiện thông báo
+                        console.log(`[MOVE] CHECKPOINT REACHED at ${currentPos}! Pausing...`);
+
+                        // Play checkpoint sound
+                        if (typeof soundManager !== 'undefined') soundManager.playCheckpoint();
+
+                        // Hiển thị thông báo
+                        const stageName = this.getStageName(currentPos);
+                        this.showEventModal('🎖️', 'VƯỢT CHẶNG!', `${team.name} đã vượt qua ${stageName}! +1 độ bền tất cả bộ phận.`);
+
+                        // Cộng độ bền
+                        team.repairAll(1);
+                        team.immuneTurns += 1;
+                        this.renderPermanentPartsBar();
+
+                        // Sparkle effect
+                        const node = this.mapNodes[currentPos];
+                        const x = this.renderer.transformX(node.x);
+                        const y = this.renderer.transformY(node.y);
+                        this.renderer.spawnSparkle(x, y, '100, 255, 100');
+
+                        this.log(`🎖️ ${team.name} VƯỢT CHẶNG ${stageName}! +1 độ bền`);
+
+                        // Đợi 1.5 giây để user thấy thông báo trước khi tiếp tục
+                        await new Promise(r => setTimeout(r, 1500));
+                        this.hideEventModal();
+                    }
+                }
             }
         }
 
-        console.log(`[MOVE] Completed! Total steps: ${stepCount}, Final position: ${team.position}`);
-
+        console.log(`[MOVE] Completed! Final position: ${team.position}`);
         this.log(`🚀 ${team.name} đến ô ${team.position}`);
         this.renderTeamsList();
 
@@ -902,10 +946,7 @@ class Game {
             return;
         }
 
-        // Check stage pass (vượt chặng)
-        this.checkStagePass(team, startPos, team.position);
-
-        // Áp dụng hiệu ứng ô (LUÔN áp dụng, kể cả khi qua chặng)
+        // Áp dụng hiệu ứng ô đích (sau khi đã đi xong)
         const node = this.mapNodes[team.position];
         if (node && node.type && node.type !== 'normal') {
             await this.applyTileEffect(team, node.type);
@@ -1042,6 +1083,9 @@ class Game {
 
     // ========== TILE EFFECTS ==========
     async applyTileEffect(team, type) {
+        // DEBUG: Log what tile type is being processed
+        console.log(`🎮 [applyTileEffect] Team: ${team.name}, Position: ${team.position}, Type: "${type}"`);
+
         const teamIndex = this.teams.indexOf(team);
         const node = this.mapNodes[team.position];
         const px = this.renderer.transformX(node.x);
@@ -1251,46 +1295,48 @@ class Game {
         }
     }
 
-    // NGUỴ - Swap positions with 2 nearest teams
+    // NGUỴ - Đổi chỗ với đội gần nhất (theo luật mới)
+    // 1. Chỉ đổi với đội đã vào game (position >= 0)
+    // 2. Đổi với đội GẦN NHẤT
+    // 3. Nếu 2 đội cách đều → ưu tiên đội PHÍA TRÊN (position cao hơn)
+    // 4. Nếu là tank đầu tiên (không có đội nào phía trên) → đổi với đội ngay sau
     doSwapEffect(team) {
         const currentPos = team.position;
 
-        // Find nearest teams (1 ahead, 1 behind)
-        let teamAhead = null, teamBehind = null;
-        let minAheadDist = Infinity, minBehindDist = Infinity;
+        // Tìm tất cả đội đã vào game (position >= 0) ngoại trừ đội hiện tại
+        const teamsInGame = this.teams.filter(t => t.id !== team.id && t.position >= 0);
 
-        this.teams.forEach(t => {
-            if (t.id === team.id) return;
-            const dist = t.position - currentPos;
+        if (teamsInGame.length === 0) {
+            // Không có đội nào khác trong game → không thể đổi chỗ
+            this.showEventModal('🎭', 'NGUỴ', `${team.name} kích hoạt NGUỴ nhưng không có đội nào để đổi chỗ!`);
+            this.log(`🎭 NGUỴ: Không có đội nào trong game để đổi chỗ`);
+            return;
+        }
 
-            if (dist > 0 && dist < minAheadDist) {
-                minAheadDist = dist;
-                teamAhead = t;
+        // Tính khoảng cách của từng đội
+        const teamsWithDist = teamsInGame.map(t => ({
+            team: t,
+            distance: Math.abs(t.position - currentPos),
+            isAhead: t.position > currentPos
+        }));
+
+        // Sắp xếp: Ưu tiên gần nhất, nếu bằng nhau thì ưu tiên phía trên (isAhead = true)
+        teamsWithDist.sort((a, b) => {
+            if (a.distance !== b.distance) {
+                return a.distance - b.distance; // Gần hơn = ưu tiên
             }
-            if (dist < 0 && Math.abs(dist) < minBehindDist) {
-                minBehindDist = Math.abs(dist);
-                teamBehind = t;
-            }
+            // Cùng khoảng cách → ưu tiên phía trên
+            return b.isAhead - a.isAhead; // true (1) > false (0)
         });
 
-        // Swap
-        let msg = `${team.name} kích hoạt NGUỴ! `;
-        if (teamAhead && teamBehind) {
-            const tempPos = teamAhead.position;
-            teamAhead.position = teamBehind.position;
-            teamBehind.position = tempPos;
-            msg += `${teamAhead.name} và ${teamBehind.name} đổi chỗ!`;
-        } else if (teamAhead) {
-            const tempPos = team.position;
-            team.position = teamAhead.position;
-            teamAhead.position = tempPos;
-            msg += `Đổi chỗ với ${teamAhead.name}!`;
-        } else if (teamBehind) {
-            const tempPos = team.position;
-            team.position = teamBehind.position;
-            teamBehind.position = tempPos;
-            msg += `Đổi chỗ với ${teamBehind.name}!`;
-        }
+        // Đổi chỗ với đội gần nhất
+        const targetTeam = teamsWithDist[0].team;
+        const tempPos = team.position;
+        team.position = targetTeam.position;
+        targetTeam.position = tempPos;
+
+        const direction = teamsWithDist[0].isAhead ? 'phía trên' : 'phía dưới';
+        const msg = `${team.name} kích hoạt NGUỴ! Đổi chỗ với ${targetTeam.name} (${direction})!`;
 
         this.showEventModal('🎭', 'NGUỴ', msg);
         this.log(`🎭 ${msg}`);
@@ -1361,16 +1407,19 @@ class Game {
     endTurn() {
         const team = this.teams[this.currentTurn];
 
-        console.log(`[END TURN] Team: ${team.name}, Position: ${team.position}, ImmuneTurns: ${team.immuneTurns}, NextImmune: ${team.immuneNextTurn}`);
+        console.log(`[END TURN] Đang xử lý lượt của: ${team.name} (ID: ${team.id})`);
+        console.log(`[END TURN] Position: ${team.position}, ImmuneTurns: ${team.immuneTurns}, NextImmune: ${team.immuneNextTurn}`);
 
         // Giảm độ bền phụ tùng sau mỗi turn (theo luật)
-        // Chỉ giảm nếu tank đã vào game (position >= 0)
+        // CHÚ Ý: Chỉ đội đang chơi (currentTurn) mới bị trừ độ bền
+        // Đội bị đổi chỗ bởi NGUỴ KHÔNG bị trừ (vì không phải lượt của họ)
+
         if (team.position < 0) {
             // Tank chưa vào game, không giảm độ bền
             this.log(`📍 ${team.name} chưa vào game, không mất độ bền.`);
         } else if (team.immuneTurns > 0) {
             // Nếu có gia cố, lượt này không mất độ bền
-            this.log(`🛡️ ${team.name} được GIA CỐ (Còn ${team.immuneTurns} lượt): Không mất độ bền!`);
+            this.log(`🛡️ ${team.name} được GIA CỐ: Không mất độ bền!`);
             team.immuneTurns--; // Giảm số lượt miễn nhiễm
         } else {
             // Giảm độ bền theo luật: Engine 3, Tires 2, Steering 4
@@ -1397,10 +1446,10 @@ class Game {
         }
 
         // Xử lý flag immuneNextTurn (Gia cố cho lượt sau)
-        // QUAN TRỌNG: Làm ở cuối cùng để đảm bảo nó áp dụng cho lượt KẾ TIẾP
+        // ĐẶT Ở CUỐI: Lượt hiện tại đã mất độ bền xong, giờ mới kích hoạt protection cho lượt SAU
         if (team.immuneNextTurn) {
-            console.log(`[END TURN] Activating Next Turn Immunity for ${team.name}`);
-            team.immuneTurns += 1; // Cộng thêm 1 lượt miễn nhiễm cho tương lai
+            console.log(`[END TURN] ${team.name} đã vào Gia cố! Lượt SAU sẽ được bảo vệ.`);
+            team.immuneTurns = 1; // Lượt tiếp theo sẽ được bảo vệ
             team.immuneNextTurn = false;
         }
 

@@ -12,7 +12,7 @@
   {
     "x": 221,
     "y": 249,
-    "type": "repair_one"
+    "type": "immune"
   },
   {
     "x": 200,
@@ -82,7 +82,7 @@
   {
     "x": 489,
     "y": 214,
-    "type": "repair_one"
+    "type": "immune"
   },
   {
     "x": 475,
