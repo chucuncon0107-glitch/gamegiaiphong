@@ -27,7 +27,8 @@ class Game {
         this.pendingMoves = 0; // Số ô được phép di chuyển
 
         // Stages (node indices for checkpoints) - Theo luật F1.txt
-        this.stageCheckpoints = [13, 19, 31, 40, 51]; // Các checkpoint trên bản đồ
+        // 4 chặng: Phước Long, Tây Nguyên, Huế - Đà Nẵng, Sài Gòn
+        this.stageCheckpoints = [13, 20, 31, 40]; // 4 checkpoint trên bản đồ
         this.stageNames = ['Xuất phát', 'Phước Long', 'Tây Nguyên', 'Huế - Đà Nẵng', 'Sài Gòn', 'Dinh Độc Lập'];
 
         // Thiết lập đường đi mặc định (không sử dụng editor)
@@ -361,11 +362,26 @@ class Game {
         // Disable nút câu hỏi ngay khi bấm
         this.disableQuestionButton();
 
+        const team = this.teams[this.currentTurn];
+
+        // CHECK ĐÓNG BĂNG: Nếu đội bị đóng băng, không cho trả lời câu hỏi
+        if (team.isFrozen) {
+            this.log(`❄️ ${team.name} bị ĐÓNG BĂNG! Mất lượt này.`);
+            this.showEventModal('❄️', 'ĐÓNG BĂNG', `${team.name} bị đóng băng và mất lượt này!`);
+            team.isFrozen = false; // Reset sau khi mất lượt
+
+            // Đợi 1.5s rồi kết thúc lượt
+            setTimeout(() => {
+                this.hideEventModal();
+                this.endTurn();
+            }, 1500);
+            return;
+        }
+
         // Play question start sound
         if (typeof soundManager !== 'undefined') soundManager.playQuestionStart();
 
         console.log("showQuestionModal called");
-        const team = this.teams[this.currentTurn];
 
         // Move tank from staging area to start position if not on map
         if (team.position === -1) {
@@ -605,25 +621,34 @@ class Game {
 
         // Xử lý các trường hợp mất phụ tùng
         const lostEngine = team.stats.engine <= 0;
+        const lostTires = team.stats.tires <= 0;
         const lostSteering = team.stats.steering <= 0;
 
-        // CASE 1: MẤT CẢ ĐỘNG CƠ VÀ VÔ LĂNG
-        if (lostEngine && lostSteering) {
-            this.log(`⚠️ ${team.name} hỏng Động cơ & Vô lăng!`);
-            this.log(`🎲 Chỉ đi được 1 ô (Ngẫu nhiên Tiền/Lùi)`);
+        // CASE 1: MẤT HẾT CẢ 3 BỘ PHẬN (Động cơ + Lốp + Vô lăng = 0)
+        if (lostEngine && lostTires && lostSteering) {
+            this.log(`⚠️ ${team.name} hỏng HẾT cả 3 bộ phận!`);
+            this.log(`🎲 Chỉ đi được 1 ô (Lẻ=Lùi, Chẵn=Tiến)`);
 
-            // Random direction
-            const isForward = Math.random() >= 0.5;
-            const direction = isForward ? 1 : -1;
+            soundManager.playDiceRoll(1500);
 
-            // Hiển thị xúc xắc = 1 (vì chỉ đi được 1 ô khi hỏng cả 2)
-            dice3D.roll(1).then(() => {
+            // Gieo xúc xắc để xác định hướng
+            const getRandomDice = () => {
+                const array = new Uint32Array(1);
+                crypto.getRandomValues(array);
+                return (array[0] % 6) + 1;
+            };
+            const diceValue = getRandomDice();
+
+            dice3D.roll(diceValue).then(() => {
+                // Lẻ = Lùi, Chẵn = Tiến
+                const isForward = (diceValue % 2 === 0);
+                const direction = isForward ? 1 : -1;
+
                 let targetPos = team.position + direction;
-                // Boundary check
                 if (targetPos < 0) targetPos = 0;
                 if (targetPos >= this.mapNodes.length) targetPos = this.mapNodes.length - 1;
 
-                this.log(`➡️ Đi ${isForward ? 'TIẾN' : 'LÙI'} 1 ô`);
+                this.log(`🎲 Gieo ${diceValue} (${diceValue % 2 === 0 ? 'Chẵn' : 'Lẻ'}) → ${isForward ? 'TIẾN' : 'LÙI'} 1 ô`);
                 this.moveTeamAnimated(team, targetPos);
             });
             return;
@@ -639,13 +664,18 @@ class Game {
         // CASE 3: BÌNH THƯỜNG HOẶC MẤT ĐỘNG CƠ
         soundManager.playDiceRoll(2000);
 
-        // Improved random using crypto API for better randomness
+        // Unbiased random dice using rejection sampling
         const getRandomDice = () => {
             const array = new Uint32Array(1);
-            crypto.getRandomValues(array);
-            return (array[0] % 6) + 1;
+            let result;
+            do {
+                crypto.getRandomValues(array);
+                result = array[0];
+            } while (result >= Math.floor(0xFFFFFFFF / 6) * 6); // Reject biased values
+            return (result % 6) + 1;
         };
         const diceValue = getRandomDice();
+        console.log(`🎲 [DICE] Random result: ${diceValue}`);
 
         dice3D.roll(diceValue).then(() => {
             this.log(`🎲 Xúc xắc: ${diceValue}`);
@@ -1410,38 +1440,48 @@ class Game {
         console.log(`[END TURN] Đang xử lý lượt của: ${team.name} (ID: ${team.id})`);
         console.log(`[END TURN] Position: ${team.position}, ImmuneTurns: ${team.immuneTurns}, NextImmune: ${team.immuneNextTurn}`);
 
-        // Giảm độ bền phụ tùng sau mỗi turn (theo luật)
-        // CHÚ Ý: Chỉ đội đang chơi (currentTurn) mới bị trừ độ bền
-        // Đội bị đổi chỗ bởi NGUỴ KHÔNG bị trừ (vì không phải lượt của họ)
+        // Giảm độ bền phụ tùng theo luật mới:
+        // - Động cơ: mỗi 3 lượt mới -1
+        // - Lốp: mỗi 2 lượt mới -1  
+        // - Vô lăng: mỗi 4 lượt mới -1
 
         if (team.position < 0) {
-            // Tank chưa vào game, không giảm độ bền
+            // Tank chưa vào game, không giảm độ bền và không đếm lượt
             this.log(`📍 ${team.name} chưa vào game, không mất độ bền.`);
         } else if (team.immuneTurns > 0) {
-            // Nếu có gia cố, lượt này không mất độ bền
+            // Nếu có gia cố, lượt này không mất độ bền (vẫn đếm lượt)
             this.log(`🛡️ ${team.name} được GIA CỐ: Không mất độ bền!`);
-            team.immuneTurns--; // Giảm số lượt miễn nhiễm
+            team.immuneTurns--;
+            team.turnCount++; // Vẫn đếm lượt
         } else {
-            // Giảm độ bền theo luật: Engine 3, Tires 2, Steering 4
-            let partsLost = false;
+            // Tăng số lượt đã chơi
+            team.turnCount++;
+            const turn = team.turnCount;
 
-            if (team.stats.engine > 0) {
+            let decayMsg = [];
+
+            // Động cơ: -1 mỗi 3 lượt (lượt 3, 6, 9...)
+            if (turn % 3 === 0 && team.stats.engine > 0) {
                 team.stats.engine = Math.max(0, team.stats.engine - 1);
-                partsLost = true;
+                decayMsg.push(`Động cơ ${team.stats.engine}`);
             }
 
-            if (team.stats.tires > 0) {
+            // Lốp: -1 mỗi 2 lượt (lượt 2, 4, 6...)
+            if (turn % 2 === 0 && team.stats.tires > 0) {
                 team.stats.tires = Math.max(0, team.stats.tires - 1);
-                partsLost = true;
+                decayMsg.push(`Lốp ${team.stats.tires}`);
             }
 
-            if (team.stats.steering > 0) {
+            // Vô lăng: -1 mỗi 4 lượt (lượt 4, 8, 12...)
+            if (turn % 4 === 0 && team.stats.steering > 0) {
                 team.stats.steering = Math.max(0, team.stats.steering - 1);
-                partsLost = true;
+                decayMsg.push(`Vô lăng ${team.stats.steering}`);
             }
 
-            if (partsLost) {
-                this.log(`⚙️ ${team.name} hao mòn: Động cơ ${team.stats.engine}, Lốp ${team.stats.tires}, Vô lăng ${team.stats.steering}`);
+            if (decayMsg.length > 0) {
+                this.log(`⚙️ Lượt ${turn} - ${team.name} hao mòn: ${decayMsg.join(', ')}`);
+            } else {
+                this.log(`📍 Lượt ${turn} - ${team.name} không hao mòn lượt này`);
             }
         }
 

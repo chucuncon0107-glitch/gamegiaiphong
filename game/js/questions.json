@@ -1,6 +1,6 @@
 {
   "title": "Câu hỏi về Đại hội Đảng IX và X",
-  "totalQuestions": 50,
+  "totalQuestions": 100,
   "questions": [
     {
       "id": 1,
@@ -551,6 +551,556 @@
         "D. lực lượng sản xuất"
       ],
       "answer": "A"
+    },
+    {
+      "id": 51,
+      "question": "Tại Đại hội IX, Đảng ta xác định con đường đi lên chủ nghĩa xã hội là bỏ qua chế độ tư bản chủ nghĩa, tức là bỏ qua yếu tố nào?",
+      "options": [
+        "A. Bỏ qua việc phát triển lực lượng sản xuất",
+        "B. Bỏ qua việc xác lập vị trí thống trị của quan hệ sản xuất và kiến trúc thượng tầng tư bản chủ nghĩa",
+        "C. Bỏ qua tất cả các thành tựu của nhân loại dưới thời tư bản",
+        "D. Bỏ qua kinh tế thị trường"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 52,
+      "question": "Đại hội IX xác định mô hình kinh tế tổng quát trong thời kỳ quá độ lên CNXH ở nước ta là gì?",
+      "options": [
+        "A. Kinh tế hàng hóa nhiều thành phần",
+        "B. Kinh tế thị trường tự do",
+        "C. Kinh tế thị trường định hướng xã hội chủ nghĩa",
+        "D. Kinh tế kế hoạch hóa tập trung"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 53,
+      "question": "Theo văn kiện Đại hội IX, thành phần kinh tế nào giữ vai trò chủ đạo?",
+      "options": [
+        "A. Kinh tế tư nhân",
+        "B. Kinh tế nhà nước",
+        "C. Kinh tế tập thể",
+        "D. Kinh tế có vốn đầu tư nước ngoài"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 54,
+      "question": "Đại hội IX xác định thành phần 'Kinh tế nhà nước' cùng với thành phần nào sẽ trở thành nền tảng vững chắc của nền kinh tế quốc dân?",
+      "options": [
+        "A. Kinh tế tư nhân",
+        "B. Kinh tế tập thể",
+        "C. Kinh tế cá thể",
+        "D. Kinh tế có vốn đầu tư nước ngoài"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 55,
+      "question": "Điểm mới trong chính sách đối ngoại của Đại hội IX so với các kỳ trước là tuyên bố Việt Nam muốn là gì?",
+      "options": [
+        "A. Là bạn của các nước xã hội chủ nghĩa",
+        "B. Là bạn, là đối tác tin cậy của các nước trong cộng đồng quốc tế",
+        "C. Là đồng minh quân sự với các cường quốc",
+        "D. Là trung tâm của khu vực Đông Nam Á"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 56,
+      "question": "Về công nghiệp hóa - hiện đại hóa, Đại hội IX xác định con đường rút ngắn là phải kết hợp CNH với yếu tố nào?",
+      "options": [
+        "A. Đô thị hóa",
+        "B. Hiện đại hóa và phát triển kinh tế tri thức",
+        "C. Phát triển nông nghiệp",
+        "D. Xuất khẩu lao động"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 57,
+      "question": "Đại hội IX nhận định thế kỷ XXI sẽ là thế kỷ của xu thế nào?",
+      "options": [
+        "A. Chiến tranh lạnh quay trở lại",
+        "B. Toàn cầu hóa kinh tế và kinh tế tri thức",
+        "C. Xung đột sắc tộc gay gắt",
+        "D. Sự sụp đổ của chủ nghĩa tư bản"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 58,
+      "question": "Trong quan điểm về văn hóa, Đại hội IX xác định xây dựng nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc nhằm mục đích gì?",
+      "options": [
+        "A. Làm nền tảng tinh thần xã hội",
+        "B. Làm cơ sở phát triển du lịch",
+        "C. Để hội nhập kinh tế",
+        "D. Để xuất khẩu văn hóa"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 59,
+      "question": "Đại hội IX đánh giá về 'Đấu tranh giai cấp' trong thời kỳ quá độ như thế nào?",
+      "options": [
+        "A. Đã kết thúc hoàn toàn",
+        "B. Vẫn còn diễn ra nhưng với nội dung và hình thức mới",
+        "C. Diễn ra gay gắt bằng bạo lực",
+        "D. Chỉ diễn ra trong lĩnh vực kinh tế"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 60,
+      "question": "Động lực chủ yếu để phát triển đất nước được Đại hội IX nhấn mạnh là gì?",
+      "options": [
+        "A. Vốn đầu tư nước ngoài",
+        "B. Đại đoàn kết toàn dân tộc",
+        "C. Tài nguyên thiên nhiên",
+        "D. Viện trợ quốc tế"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 61,
+      "question": "Trong chính sách xã hội, Đại hội IX chủ trương thực hiện nguyên tắc phân phối nào là chủ yếu?",
+      "options": [
+        "A. Phân phối theo nhu cầu",
+        "B. Phân phối bình quân",
+        "C. Phân phối theo kết quả lao động và hiệu quả kinh tế",
+        "D. Phân phối theo vốn góp"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 62,
+      "question": "Quan điểm của Đại hội IX về mối quan hệ giữa 'Tăng trưởng kinh tế' và 'Công bằng xã hội'?",
+      "options": [
+        "A. Tăng trưởng kinh tế đi trước, công bằng xã hội đi sau",
+        "B. Hy sinh công bằng xã hội để tăng trưởng kinh tế",
+        "C. Thực hiện công bằng xã hội ngay trong từng bước và từng chính sách phát triển",
+        "D. Ưu tiên công bằng xã hội hơn tăng trưởng kinh tế"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 63,
+      "question": "Nghị quyết Trung ương 5 khóa IX đã coi 'Kinh tế tư nhân' là gì?",
+      "options": [
+        "A. Kẻ thù của chủ nghĩa xã hội",
+        "B. Một bộ phận cấu thành quan trọng của nền kinh tế quốc dân",
+        "C. Thành phần kinh tế tạm thời",
+        "D. Đối tượng cần xóa bỏ"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 64,
+      "question": "Nghị quyết Trung ương 8 khóa IX về 'Chiến lược bảo vệ Tổ quốc trong tình hình mới' xác định đối tác và đối tượng dựa trên cơ sở nào?",
+      "options": [
+        "A. Ý thức hệ chính trị",
+        "B. Lợi ích quốc gia, dân tộc",
+        "C. Vị trí địa lý",
+        "D. Tiềm lực quân sự"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 65,
+      "question": "Đại hội IX xác định mục tiêu phấn đấu đến năm 2020 nước ta sẽ cơ bản trở thành nước như thế nào?",
+      "options": [
+        "A. Nước công nghiệp theo hướng hiện đại",
+        "B. Nước nông nghiệp phát triển",
+        "C. Nước có thu nhập cao",
+        "D. Nước siêu cường trong khu vực"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 66,
+      "question": "Về giáo dục và đào tạo, Đại hội IX tiếp tục khẳng định quan điểm nào?",
+      "options": [
+        "A. Giáo dục là quốc sách hàng đầu",
+        "B. Giáo dục là phúc lợi xã hội",
+        "C. Giáo dục chỉ dành cho người tài",
+        "D. Giáo dục là trách nhiệm của riêng Nhà nước"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 67,
+      "question": "Đại hội IX xác định vai trò của Khoa học và Công nghệ là gì?",
+      "options": [
+        "A. Động lực thứ yếu",
+        "B. Nền tảng và động lực phát triển công nghiệp hóa, hiện đại hóa",
+        "C. Lĩnh vực cần đầu tư sau cùng",
+        "D. Chỉ phục vụ nghiên cứu lý thuyết"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 68,
+      "question": "Đại hội IX chủ trương xây dựng Nhà nước pháp quyền XHCN dưới sự lãnh đạo của ai?",
+      "options": [
+        "A. Quốc hội",
+        "B. Chính phủ",
+        "C. Đảng Cộng sản Việt Nam",
+        "D. Mặt trận Tổ quốc"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 69,
+      "question": "Khái niệm 'Chủ động hội nhập kinh tế quốc tế' được chính thức đưa ra nhằm thay thế tư duy nào trước đó?",
+      "options": [
+        "A. Khép kín, tự cung tự cấp",
+        "B. Mở cửa thụ động, tranh thủ nguồn lực bên ngoài",
+        "C. Chỉ quan hệ với các nước láng giềng",
+        "D. Phụ thuộc vào nước ngoài"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 70,
+      "question": "Về tôn giáo, Đại hội IX và các hội nghị Trung ương khóa này khẳng định quan điểm gì?",
+      "options": [
+        "A. Tín ngưỡng, tôn giáo là nhu cầu tinh thần của một bộ phận nhân dân",
+        "B. Cần xóa bỏ dần các tôn giáo",
+        "C. Khuyến khích phát triển tôn giáo mới",
+        "D. Tôn giáo là thuốc phiện của nhân dân"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 71,
+      "question": "Nghị quyết Trung ương 3 khóa IX về doanh nghiệp nhà nước chủ trương thực hiện biện pháp gì mạnh mẽ nhất?",
+      "options": [
+        "A. Quốc hữu hóa",
+        "B. Giải thể hàng loạt",
+        "C. Cổ phần hóa, giao, bán, khoán, cho thuê doanh nghiệp nhà nước",
+        "D. Giữ nguyên mô hình bao cấp"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": 72,
+      "question": "Đại hội IX xác định yếu tố nào là 'nguồn lực quý báu nhất' của sự phát triển?",
+      "options": [
+        "A. Tài nguyên khoáng sản",
+        "B. Con người Việt Nam",
+        "C. Vị trí địa lý",
+        "D. Vốn ODA"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 73,
+      "question": "Phương châm chỉ đạo của Đại hội IX về xây dựng Đảng là gì?",
+      "options": [
+        "A. Nhìn thẳng vào sự thật, đánh giá đúng sự thật, nói rõ sự thật",
+        "B. Đoàn kết là sức mạnh",
+        "C. Đổi mới tư duy kinh tế",
+        "D. Giữ vững ổn định chính trị"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 74,
+      "question": "Về vấn đề dân tộc, Đại hội IX nhấn mạnh nguyên tắc nào giữa các dân tộc?",
+      "options": [
+        "A. Tự trị và ly khai",
+        "B. Bình đẳng, đoàn kết, tương trợ, giúp nhau cùng phát triển",
+        "C. Đồng hóa văn hóa",
+        "D. Dân tộc đa số lãnh đạo dân tộc thiểu số"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 75,
+      "question": "Đại hội IX đánh giá chặng đường đầu tiên của thời kỳ quá độ lên CNXH đã kết thúc chưa?",
+      "options": [
+        "A. Chưa kết thúc",
+        "B. Đã kết thúc thắng lợi",
+        "C. Đang bắt đầu",
+        "D. Đã thất bại"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 76,
+      "question": "Đại hội X đã có bước bổ sung quan trọng nào vào bản chất của Đảng Cộng sản Việt Nam?",
+      "options": [
+        "A. Đảng là đội tiên phong của giai cấp công nhân, đồng thời là đội tiên phong của nhân dân lao động và của dân tộc Việt Nam",
+        "B. Đảng chỉ là đội tiên phong của giai cấp công nhân",
+        "C. Đảng là đại diện của tầng lớp doanh nhân",
+        "D. Đảng là tổ chức của những người yêu nước"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 77,
+      "question": "Một trong những quyết định đột phá của Đại hội X về quy định đối với Đảng viên là gì?",
+      "options": [
+        "A. Đảng viên được phép kết hôn với người nước ngoài",
+        "B. Đảng viên được làm kinh tế tư nhân",
+        "C. Đảng viên không được tham gia mạng xã hội",
+        "D. Đảng viên được miễn thuế thu nhập"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 78,
+      "question": "Nghị quyết về 'Chiến lược biển Việt Nam đến năm 2020' được thông qua tại Hội nghị Trung ương nào khóa X?",
+      "options": [
+        "A. Hội nghị Trung ương 2",
+        "B. Hội nghị Trung ương 4",
+        "C. Hội nghị Trung ương 6",
+        "D. Hội nghị Trung ương 8"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 79,
+      "question": "Mục tiêu của Chiến lược biển Việt Nam được khóa X đề ra là phấn đấu đưa nước ta trở thành:",
+      "options": [
+        "A. Quốc gia có hải quân mạnh nhất",
+        "B. Quốc gia mạnh về biển, làm giàu từ biển",
+        "C. Quốc gia xuất khẩu thủy sản lớn nhất thế giới",
+        "D. Quốc gia du lịch biển hàng đầu"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 80,
+      "question": "Nghị quyết Trung ương 7 khóa X về 'Tam nông' giải quyết vấn đề gì?",
+      "options": [
+        "A. Nông nghiệp, Nông dân, Nông thôn",
+        "B. Nông lâm, Ngư nghiệp, Thủy lợi",
+        "C. Năng suất, Năng lượng, Năng lực",
+        "D. Nhà nông, Nhà nước, Nhà khoa học"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 81,
+      "question": "Trong Nghị quyết về 'Tam nông', chủ thể của quá trình phát triển được xác định là ai?",
+      "options": [
+        "A. Doanh nghiệp",
+        "B. Nông dân",
+        "C. Nhà nước",
+        "D. Hợp tác xã"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 82,
+      "question": "Nghị quyết Trung ương 7 khóa X về xây dựng đội ngũ trí thức khẳng định trí thức là:",
+      "options": [
+        "A. Lực lượng lao động thủ công",
+        "B. Nguồn lực đặc biệt quan trọng, là nguyên khí quốc gia",
+        "C. Tầng lớp trung gian",
+        "D. Lực lượng phụ trợ"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 83,
+      "question": "Để tăng cường công tác phòng chống tham nhũng, Hội nghị Trung ương 3 khóa X đã quyết định thành lập cơ quan nào?",
+      "options": [
+        "A. Ban Chỉ đạo Trung ương về phòng, chống tham nhũng trực thuộc Bộ Chính trị",
+        "B. Ban Chỉ đạo Trung ương về phòng, chống tham nhũng trực thuộc Thủ tướng Chính phủ",
+        "C. Ủy ban Kiểm tra Trung ương",
+        "D. Cục chống tham nhũng"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 84,
+      "question": "Đại hội X đánh giá ý nghĩa lịch sử của 20 năm đổi mới là gì?",
+      "options": [
+        "A. Đã đưa nước ta ra khỏi tình trạng kém phát triển",
+        "B. Đạt được những thành tựu to lớn, có ý nghĩa lịch sử",
+        "C. Đã hoàn thành công nghiệp hóa",
+        "D. Đã xây dựng xong chủ nghĩa xã hội"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 85,
+      "question": "Đại hội X xác định cải cách hành chính phải theo hướng nào để phục vụ người dân tốt hơn?",
+      "options": [
+        "A. Đơn giản hóa thủ tục, thực hiện cơ chế 'một cửa'",
+        "B. Tăng thêm các tầng nấc quản lý",
+        "C. Tăng phí dịch vụ hành chính",
+        "D. Giảm biên chế cơ học"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 86,
+      "question": "Về quan hệ đối ngoại, Đại hội X xác định Việt Nam là 'thành viên...' như thế nào trong cộng đồng quốc tế?",
+      "options": [
+        "A. Thành viên tích cực",
+        "B. Thành viên có trách nhiệm",
+        "C. Thành viên độc lập",
+        "D. Thành viên thường trực"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 87,
+      "question": "Một trong những bài học kinh nghiệm lớn được Đại hội X rút ra là đổi mới phải dựa vào sức mạnh của ai?",
+      "options": [
+        "A. Các tập đoàn kinh tế",
+        "B. Nhân dân, vì lợi ích của nhân dân",
+        "C. Sự viện trợ quốc tế",
+        "D. Đội ngũ cán bộ chủ chốt"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 88,
+      "question": "Đại hội X xác định kinh tế tư nhân có vai trò gì trong nền kinh tế?",
+      "options": [
+        "A. Là vai trò chủ đạo",
+        "B. Là một trong những động lực của nền kinh tế",
+        "C. Là thành phần phụ trợ",
+        "D. Là đối tượng cần hạn chế"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 89,
+      "question": "Chủ trương xã hội hóa của Đại hội X nhằm mục đích gì trong lĩnh vực y tế, giáo dục?",
+      "options": [
+        "A. Tư nhân hóa hoàn toàn các bệnh viện, trường học",
+        "B. Huy động các nguồn lực xã hội cùng tham gia phát triển",
+        "C. Giảm ngân sách nhà nước bằng 0",
+        "D. Nhà nước rút lui hoàn toàn khỏi lĩnh vực này"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 90,
+      "question": "Hội nghị Trung ương 6 khóa X đã ban hành nghị quyết về việc hoàn thiện thể chế kinh tế nào?",
+      "options": [
+        "A. Thể chế kinh tế thị trường định hướng xã hội chủ nghĩa",
+        "B. Thể chế kinh tế bao cấp",
+        "C. Thể chế kinh tế tư bản",
+        "D. Thể chế kinh tế số"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 91,
+      "question": "Sự kiện Việt Nam gia nhập WTO (Tổ chức Thương mại Thế giới) trong nhiệm kỳ Đại hội X đánh dấu điều gì?",
+      "options": [
+        "A. Việt Nam hội nhập toàn diện vào nền kinh tế toàn cầu",
+        "B. Việt Nam mất chủ quyền kinh tế",
+        "C. Việt Nam trở thành nước phát triển",
+        "D. Việt Nam dẫn đầu xuất khẩu gạo"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 92,
+      "question": "Đại hội X chủ trương giải quyết các tranh chấp quốc tế bằng biện pháp nào?",
+      "options": [
+        "A. Biện pháp quân sự",
+        "B. Thương lượng hòa bình trên cơ sở luật pháp quốc tế",
+        "C. Đóng cửa biên giới",
+        "D. Kêu gọi đồng minh can thiệp"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 93,
+      "question": "Cuộc vận động 'Học tập và làm theo tấm gương đạo đức Hồ Chí Minh' được Bộ Chính trị khóa X phát động nhằm mục đích gì chính?",
+      "options": [
+        "A. Nâng cao trình độ chuyên môn",
+        "B. Ngăn chặn sự suy thoái về tư tưởng chính trị, đạo đức, lối sống",
+        "C. Phát triển kinh tế",
+        "D. Tăng cường thể lực"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 94,
+      "question": "Về công tác cán bộ, Đại hội X nhấn mạnh việc thực hiện nguyên tắc nào?",
+      "options": [
+        "A. Đảng thống nhất lãnh đạo công tác cán bộ và quản lý đội ngũ cán bộ",
+        "B. Giao toàn quyền cho chính quyền địa phương",
+        "C. Thi tuyển cạnh tranh tự do",
+        "D. Cha truyền con nối"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 95,
+      "question": "Hội nghị Trung ương 5 khóa X đã ra nghị quyết về công tác nào trong hệ thống chính trị?",
+      "options": [
+        "A. Công tác thanh tra, kiểm tra, giám sát của Đảng",
+        "B. Công tác dân vận",
+        "C. Công tác tuyên giáo",
+        "D. Công tác tài chính đảng"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": 96,
+      "question": "Đại hội X xác định mục tiêu sớm đưa nước ta ra khỏi tình trạng nào?",
+      "options": [
+        "A. Tình trạng chiến tranh",
+        "B. Tình trạng kém phát triển",
+        "C. Tình trạng nhập siêu",
+        "D. Tình trạng bao cấp"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 97,
+      "question": "Về địa giới hành chính, quyết định lớn nào được thực hiện trong nhiệm kỳ khóa X liên quan đến thủ đô?",
+      "options": [
+        "A. Thành lập thành phố Thủ Đức",
+        "B. Mở rộng địa giới hành chính Thủ đô Hà Nội",
+        "C. Chia tách Hà Nội thành 2 tỉnh",
+        "D. Di dời thủ đô về vị trí mới"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 98,
+      "question": "Đại hội X xác định nội dung cốt lõi của công nghiệp hóa, hiện đại hóa gắn với phát triển kinh tế tri thức là gì?",
+      "options": [
+        "A. Tăng cường khai thác tài nguyên thô",
+        "B. Ứng dụng mạnh mẽ khoa học và công nghệ",
+        "C. Mở rộng diện tích đất canh tác",
+        "D. Tăng số lượng công nhân thủ công"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 99,
+      "question": "Trong nhiệm kỳ khóa X, Việt Nam đã đảm nhận cương vị gì tại Hội đồng Bảo an Liên hợp quốc?",
+      "options": [
+        "A. Ủy viên thường trực",
+        "B. Ủy viên không thường trực",
+        "C. Quan sát viên",
+        "D. Chủ tịch vĩnh viễn"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 100,
+      "question": "Quan điểm của Đại hội X về việc Đảng viên làm kinh tế tư nhân phải tuân thủ điều gì?",
+      "options": [
+        "A. Không giới hạn quy mô",
+        "B. Phải tuân thủ điều lệ Đảng và pháp luật của Nhà nước",
+        "C. Được ưu tiên miễn thuế",
+        "D. Chỉ được làm trong lĩnh vực nông nghiệp"
+      ],
+      "answer": "B"
     }
   ]
 }

@@ -5,9 +5,13 @@ class Team {
         this.color = color;
         this.position = 0;
 
-        // Durability: Engine 3, Tires 2, Steering 4
-        this.stats = { engine: 3, tires: 2, steering: 4 };
-        this.maxStats = { engine: 3, tires: 2, steering: 4 };
+        // Durability: Tất cả bắt đầu với 3 điểm
+        // Hao mòn: Động cơ mỗi 3 lượt, Lốp mỗi 2 lượt, Vô lăng mỗi 4 lượt
+        this.stats = { engine: 3, tires: 3, steering: 3 };
+        this.maxStats = { engine: 3, tires: 3, steering: 3 };
+
+        // Đếm số lượt để tính hao mòn
+        this.turnCount = 0;
 
         // Status Effects
         this.isFrozen = false;      // Đóng băng - mất lượt
